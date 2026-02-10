@@ -71,6 +71,9 @@ A powerful OWASP ZAP extension that automatically detects software versions in H
 3. **Detected versions** appear as alerts in the **Alerts** tab:
    - **Informational** (blue): Version detected, no known vulnerabilities
    - **Low/Medium/High** (colored): Version detected with known vulnerabilities
+  
+<img width="1904" height="417" alt="image" src="https://github.com/user-attachments/assets/e029afb8-e62a-4cd3-84d7-0406bcb154f0" />
+
 
 ## 🔧 Troubleshooting
 
