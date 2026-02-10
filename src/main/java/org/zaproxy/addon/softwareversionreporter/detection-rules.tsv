@@ -1,0 +1,195 @@
+# ================================================================================================
+# COMPREHENSIVE SOFTWARE DETECTION RULES - Enterprise Grade
+# Pattern	Type	Software	Confidence	CPE_Vendor	CPE_Product
+# ================================================================================================
+# WEB SERVERS - Headers & Body
+^Apache/([\d.]+)	header	Apache	HIGH	apache	http_server
+Apache/([\d.]+)	body	Apache	MEDIUM	apache	http_server
+^nginx/([\d.]+)	header	nginx	HIGH	f5	nginx
+nginx/([\d.]+)	body	nginx	MEDIUM	f5	nginx
+^Microsoft-IIS/([\d.]+)	header	IIS	HIGH	microsoft	iis
+IIS/([\d.]+)	body	IIS	MEDIUM	microsoft	iis
+^lighttpd/([\d.]+)	header	lighttpd	HIGH	lighttpd	lighttpd
+lighttpd/([\d.]+)	body	lighttpd	MEDIUM	lighttpd	lighttpd
+^LiteSpeed/([\d.]+)	header	LiteSpeed	HIGH	litespeedtech	litespeed_web_server
+LiteSpeed/([\d.]+)	body	LiteSpeed	MEDIUM	litespeedtech	litespeed_web_server
+gunicorn/([\d.]+)	header	Gunicorn	HIGH	gunicorn	gunicorn
+Gunicorn/([\d.]+)	body	Gunicorn	MEDIUM	gunicorn	gunicorn
+^Werkzeug/([\d.]+)	header	Werkzeug	HIGH	palletsprojects	werkzeug
+Werkzeug/([\d.]+)	body	Werkzeug	MEDIUM	palletsprojects	werkzeug
+^Jetty\((\d+\.\d+[\.\d]*)	header	Jetty	HIGH	eclipse	jetty
+Jetty/([\d.]+)	body	Jetty	MEDIUM	eclipse	jetty
+^Apache-Coyote/([\d.]+)	header	Tomcat	HIGH	apache	tomcat
+Apache-Coyote/([\d.]+)	body	Tomcat	MEDIUM	apache	tomcat
+Tomcat/([\d.]+)	header	Tomcat	HIGH	apache	tomcat
+Tomcat/([\d.]+)	body	Tomcat	MEDIUM	apache	tomcat
+# PROGRAMMING LANGUAGES
+^PHP/([\d.]+)	header	PHP	HIGH	php	php
+PHP/([\d.]+)	header	PHP	HIGH	php	php
+PHP/([\d.]+)	body	PHP	MEDIUM	php	php
+^Python/([\d.]+)	header	Python	HIGH	python	python
+Python/([\d.]+)	body	Python	MEDIUM	python	python
+X-Powered-By.*ASP\.NET	header	ASP.NET	HIGH	microsoft	asp.net
+ASP\.NET/([\d.]+)	body	ASP.NET	MEDIUM	microsoft	asp.net
+X-AspNet-Version:\s*([\d.]+)	header	ASP.NET	HIGH	microsoft	asp.net
+# NODE.JS & EXPRESS
+^Express/([\d.]+)	header	Express	HIGH	expressjs	express
+Express/([\d.]+)	body	Express	MEDIUM	expressjs	express
+Node\.js/([\d.]+)	header	Node.js	HIGH	nodejs	node.js
+Node\.js/([\d.]+)	body	Node.js	MEDIUM	nodejs	node.js
+node/([\d.]+)	body	Node.js	MEDIUM	nodejs	node.js
+# SSL/TLS
+^OpenSSL/([\d.]+[a-z]?)	header	OpenSSL	HIGH	openssl	openssl
+OpenSSL/([\d.]+)	body	OpenSSL	MEDIUM	openssl	openssl
+^mod_ssl/([\d.]+)	header	mod_ssl	HIGH	modssl	mod_ssl
+mod_ssl/([\d.]+)	body	mod_ssl	MEDIUM	modssl	mod_ssl
+# CMS - META TAGS & PATTERNS
+<meta\s+name=["\']generator["\']\s+content=["\']WordPress\s+([\d.]+)	body	WordPress	HIGH	wordpress	wordpress
+WordPress/([\d.]+)	header	WordPress	HIGH	wordpress	wordpress
+WordPress/([\d.]+)	body	WordPress	HIGH	wordpress	wordpress
+/wp-content/	body	WordPress	LOW	wordpress	wordpress
+/wp-includes/	body	WordPress	LOW	wordpress	wordpress
+wp-json/wp/v2	body	WordPress	MEDIUM	wordpress	wordpress
+<meta\s+name=["\']generator["\']\s+content=["\']Joomla!\s+([\d.]+)	body	Joomla	HIGH	joomla	joomla
+Joomla/([\d.]+)	header	Joomla	HIGH	joomla	joomla
+Joomla/([\d.]+)	body	Joomla	HIGH	joomla	joomla
+/media/jui/	body	Joomla	MEDIUM	joomla	joomla
+<meta\s+name=["\']generator["\']\s+content=["\']Drupal\s+([\d.]+)	body	Drupal	HIGH	drupal	drupal
+Drupal/([\d.]+)	header	Drupal	HIGH	drupal	drupal
+Drupal/([\d.]+)	body	Drupal	HIGH	drupal	drupal
+Drupal\.settings	body	Drupal	MEDIUM	drupal	drupal
+<meta\s+name=["\']generator["\']\s+content=["\']Magento.*?([\d.]+)	body	Magento	HIGH	magento	magento
+Magento/([\d.]+)	header	Magento	HIGH	magento	magento
+Magento/([\d.]+)	body	Magento	HIGH	magento	magento
+X-Magento-Cache	header	Magento	MEDIUM	magento	magento
+<meta\s+name=["\']generator["\']\s+content=["\']PrestaShop\s+([\d.]+)	body	PrestaShop	HIGH	prestashop	prestashop
+PrestaShop/([\d.]+)	header	PrestaShop	HIGH	prestashop	prestashop
+PrestaShop/([\d.]+)	body	PrestaShop	HIGH	prestashop	prestashop
+Shopify\.theme	body	Shopify	MEDIUM	shopify	shopify
+Shopify\.cdnHost	body	Shopify	MEDIUM	shopify	shopify
+WooCommerce\s+([\d.]+)	body	WooCommerce	HIGH	automattic	woocommerce
+woocommerce/([\d.]+)	body	WooCommerce	MEDIUM	automattic	woocommerce
+# JAVASCRIPT FRAMEWORKS
+["\']react["\']\s*:\s*["\']\^?([\d.]+)	body	React	MEDIUM	facebook	react
+react@([\d.]+)	body	React	MEDIUM	facebook	react
+React/([\d.]+)	header	React	HIGH	facebook	react
+React/([\d.]+)	body	React	MEDIUM	facebook	react
+React\.version\s*=\s*["\']?([\d.]+)	body	React	HIGH	facebook	react
+["\']vue["\']\s*:\s*["\']\^?([\d.]+)	body	Vue.js	MEDIUM	vuejs	vue
+Vue/([\d.]+)	header	Vue.js	HIGH	vuejs	vue
+Vue/([\d.]+)	body	Vue.js	MEDIUM	vuejs	vue
+Vue\.version\s*=\s*["\']?([\d.]+)	body	Vue.js	HIGH	vuejs	vue
+["\']angular["\']\s*:\s*["\']\^?([\d.]+)	body	Angular	MEDIUM	angular	angular
+Angular/([\d.]+)	header	Angular	HIGH	angular	angular
+Angular/([\d.]+)	body	Angular	MEDIUM	angular	angular
+angular\.version\s*=\s*["\']?([\d.]+)	body	Angular	HIGH	angular	angular
+["\']jquery["\']\s*:\s*["\']\^?([\d.]+)	body	jQuery	MEDIUM	jquery	jquery
+jQuery\s+v([\d.]+)	body	jQuery	HIGH	jquery	jquery
+jquery-([\d.]+)\.min\.js	body	jQuery	HIGH	jquery	jquery
+jquery/([\d.]+)	body	jQuery	MEDIUM	jquery	jquery
+["\']bootstrap["\']\s*:\s*["\']\^?([\d.]+)	body	Bootstrap	MEDIUM	getbootstrap	bootstrap
+bootstrap/([\d.]+)	body	Bootstrap	MEDIUM	getbootstrap	bootstrap
+Bootstrap/([\d.]+)	header	Bootstrap	HIGH	getbootstrap	bootstrap
+["\']lodash["\']\s*:\s*["\']\^?([\d.]+)	body	Lodash	MEDIUM	lodash	lodash
+lodash@([\d.]+)	body	Lodash	MEDIUM	lodash	lodash
+["\']axios["\']\s*:\s*["\']\^?([\d.]+)	body	Axios	MEDIUM	axios	axios
+["\']webpack["\']\s*:\s*["\']\^?([\d.]+)	body	Webpack	MEDIUM	webpack	webpack
+# PHP FRAMEWORKS
+Laravel\s+v([\d.]+)	body	Laravel	HIGH	laravel	laravel
+Laravel/([\d.]+)	header	Laravel	HIGH	laravel	laravel
+Laravel/([\d.]+)	body	Laravel	HIGH	laravel	laravel
+laravel_session	body	Laravel	MEDIUM	laravel	laravel
+["\']laravel/framework["\']\s*:\s*["\']\^?([\d.]+)	body	Laravel	HIGH	laravel	laravel
+CodeIgniter\s+([\d.]+)	body	CodeIgniter	HIGH	codeigniter	codeigniter
+CodeIgniter/([\d.]+)	header	CodeIgniter	HIGH	codeigniter	codeigniter
+CakePHP\s+([\d.]+)	body	CakePHP	HIGH	cakephp	cakephp
+CakePHP/([\d.]+)	header	CakePHP	HIGH	cakephp	cakephp
+Yii\s+Framework/([\d.]+)	body	Yii	HIGH	yiisoft	yii
+Yii/([\d.]+)	header	Yii	HIGH	yiisoft	yii
+symfony/([\d.]+)	body	Symfony	HIGH	sensiolabs	symfony
+Symfony/([\d.]+)	header	Symfony	HIGH	sensiolabs	symfony
+["\']symfony/symfony["\']\s*:\s*["\']\^?([\d.]+)	body	Symfony	HIGH	sensiolabs	symfony
+Zend\s+Framework\s+([\d.]+)	body	Zend Framework	HIGH	zend	framework
+Zend/([\d.]+)	header	Zend Framework	HIGH	zend	framework
+# PYTHON FRAMEWORKS
+Django/([\d.]+)	body	Django	HIGH	djangoproject	django
+Django/([\d.]+)	header	Django	HIGH	djangoproject	django
+["\']Django["\']\s*:\s*["\']([\d.]+)	body	Django	HIGH	djangoproject	django
+Flask/([\d.]+)	body	Flask	HIGH	palletsprojects	flask
+Flask/([\d.]+)	header	Flask	HIGH	palletsprojects	flask
+["\']Flask["\']\s*:\s*["\']([\d.]+)	body	Flask	HIGH	palletsprojects	flask
+# JAVA FRAMEWORKS
+spring-boot/([\d.]+)	body	Spring Boot	HIGH	vmware	spring_boot
+Spring Boot/([\d.]+)	header	Spring Boot	HIGH	vmware	spring_boot
+["\']spring-boot["\']\s*:\s*["\']([\d.]+)	body	Spring Boot	HIGH	vmware	spring_boot
+JBoss/([\d.]+)	body	JBoss	HIGH	redhat	jboss
+JBoss/([\d.]+)	header	JBoss	HIGH	redhat	jboss
+WebLogic\s+Server\s+([\d.]+)	body	WebLogic	HIGH	oracle	weblogic_server
+WebLogic/([\d.]+)	header	WebLogic	HIGH	oracle	weblogic_server
+Struts/([\d.]+)	body	Apache Struts	HIGH	apache	struts
+Hibernate/([\d.]+)	body	Hibernate	MEDIUM	hibernate	hibernate
+# NODE.JS PACKAGES
+["\']express["\']\s*:\s*["\']\^?([\d.]+)	body	Express	MEDIUM	expressjs	express
+express@([\d.]+)	body	Express	HIGH	expressjs	express
+["\']next["\']\s*:\s*["\']\^?([\d.]+)	body	Next.js	MEDIUM	vercel	next.js
+Next\.js/([\d.]+)	header	Next.js	HIGH	vercel	next.js
+["\']nuxt["\']\s*:\s*["\']\^?([\d.]+)	body	Nuxt.js	MEDIUM	nuxt	nuxt
+Nuxt/([\d.]+)	header	Nuxt.js	HIGH	nuxt	nuxt
+["\']gatsby["\']\s*:\s*["\']\^?([\d.]+)	body	Gatsby	MEDIUM	gatsbyjs	gatsby
+["\']nest["\']\s*:\s*["\']\^?([\d.]+)	body	NestJS	MEDIUM	nestjs	nest
+# DATABASES
+MySQL/([\d.]+)	body	MySQL	HIGH	oracle	mysql
+MySQL/([\d.]+)	header	MySQL	HIGH	oracle	mysql
+PostgreSQL\s+([\d.]+)	body	PostgreSQL	HIGH	postgresql	postgresql
+PostgreSQL/([\d.]+)	header	PostgreSQL	HIGH	postgresql	postgresql
+MongoDB\s+([\d.]+)	body	MongoDB	HIGH	mongodb	mongodb
+MongoDB/([\d.]+)	header	MongoDB	HIGH	mongodb	mongodb
+Redis/([\d.]+)	body	Redis	HIGH	redis	redis
+Redis/([\d.]+)	header	Redis	HIGH	redis	redis
+MariaDB/([\d.]+)	body	MariaDB	HIGH	mariadb	mariadb
+MariaDB/([\d.]+)	header	MariaDB	HIGH	mariadb	mariadb
+Elasticsearch/([\d.]+)	body	Elasticsearch	HIGH	elastic	elasticsearch
+Elasticsearch/([\d.]+)	header	Elasticsearch	HIGH	elastic	elasticsearch
+# MESSAGE QUEUES
+RabbitMQ/([\d.]+)	body	RabbitMQ	HIGH	rabbitmq	rabbitmq
+RabbitMQ/([\d.]+)	header	RabbitMQ	HIGH	rabbitmq	rabbitmq
+Kafka/([\d.]+)	body	Apache Kafka	HIGH	apache	kafka
+Kafka/([\d.]+)	header	Apache Kafka	HIGH	apache	kafka
+# COMMENTS
+<!--.*?WordPress\s+([\d.]+)	body	WordPress	MEDIUM	wordpress	wordpress
+<!--.*?jQuery\s+v?([\d.]+)	body	jQuery	MEDIUM	jquery	jquery
+<!--.*?Bootstrap\s+([\d.]+)	body	Bootstrap	MEDIUM	getbootstrap	bootstrap
+<!--.*?Apache/([\d.]+)	body	Apache	MEDIUM	apache	http_server
+<!--.*?nginx/([\d.]+)	body	nginx	MEDIUM	f5	nginx
+/\*.*?jQuery\s+v?([\d.]+)	body	jQuery	MEDIUM	jquery	jquery
+/\*.*?Bootstrap\s+([\d.]+)	body	Bootstrap	MEDIUM	getbootstrap	bootstrap
+# RUBY FRAMEWORKS
+Rails\s+([\d.]+)	body	Ruby on Rails	HIGH	rubyonrails	rails
+Rails/([\d.]+)	header	Ruby on Rails	HIGH	rubyonrails	rails
+["\']rails["\']\s*:\s*["\']([\d.]+)	body	Ruby on Rails	HIGH	rubyonrails	rails
+Sinatra/([\d.]+)	body	Sinatra	HIGH	sinatrarb	sinatra
+Sinatra/([\d.]+)	header	Sinatra	HIGH	sinatrarb	sinatra
+# .NET FRAMEWORKS
+ASP\.NET\s+Core\s+([\d.]+)	body	ASP.NET Core	HIGH	microsoft	asp.net_core
+ASP\.NET Core/([\d.]+)	header	ASP.NET Core	HIGH	microsoft	asp.net_core
+\.NET\s+Framework\s+([\d.]+)	body	.NET Framework	HIGH	microsoft	.net_framework
+Blazor/([\d.]+)	body	Blazor	MEDIUM	microsoft	blazor
+Blazor/([\d.]+)	header	Blazor	MEDIUM	microsoft	blazor
+# GO FRAMEWORKS
+Gin/([\d.]+)	body	Gin	MEDIUM	gin-gonic	gin
+Gin/([\d.]+)	header	Gin	MEDIUM	gin-gonic	gin
+Echo/([\d.]+)	body	Echo	MEDIUM	labstack	echo
+Echo/([\d.]+)	header	Echo	MEDIUM	labstack	echo
+# ERROR MESSAGES
+Apache/([\d.]+)\s+Server\s+at	body	Apache	MEDIUM	apache	http_server
+nginx/([\d.]+)\s+error	body	nginx	MEDIUM	f5	nginx
+PHP\s+([\d.]+)\s+-\s+Copyright	body	PHP	MEDIUM	php	php
+Python/([\d.]+)\s+Traceback	body	Python	MEDIUM	python	python
+# CDN URLS
+cdn\.jsdelivr\.net/npm/jquery@([\d.]+)	body	jQuery	MEDIUM	jquery	jquery
+cdn\.jsdelivr\.net/npm/bootstrap@([\d.]+)	body	Bootstrap	MEDIUM	getbootstrap	bootstrap
+cdn\.jsdelivr\.net/npm/vue@([\d.]+)	body	Vue.js	MEDIUM	vuejs	vue
+unpkg\.com/react@([\d.]+)	body	React	MEDIUM	facebook	react
+cdnjs\.cloudflare\.com/ajax/libs/jquery/([\d.]+)	body	jQuery	MEDIUM	jquery	jquery
+cdnjs\.cloudflare\.com/ajax/libs/angular\.js/([\d.]+)	body	Angular	MEDIUM	angular	angular
+software	type	pattern	cpe_vendor	cpe_product

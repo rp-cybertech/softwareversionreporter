@@ -1,0 +1,809 @@
+# ================================================================================================
+# COMPREHENSIVE SOFTWARE DETECTION RULES - Enterprise Grade
+# Pattern	Type	Software	Confidence	CPE_Vendor	CPE_Product
+# ================================================================================================
+# WEB SERVERS - Headers & Body
+^Apache/([\d.]+)	header	Apache	HIGH	apache	http_server
+Apache/([\d.]+)	body	Apache	MEDIUM	apache	http_server
+^nginx/([\d.]+)	header	nginx	HIGH	f5	nginx
+nginx/([\d.]+)	body	nginx	MEDIUM	f5	nginx
+^Microsoft-IIS/([\d.]+)	header	IIS	HIGH	microsoft	iis
+IIS/([\d.]+)	body	IIS	MEDIUM	microsoft	iis
+^lighttpd/([\d.]+)	header	lighttpd	HIGH	lighttpd	lighttpd
+lighttpd/([\d.]+)	body	lighttpd	MEDIUM	lighttpd	lighttpd
+^LiteSpeed/([\d.]+)	header	LiteSpeed	HIGH	litespeedtech	litespeed_web_server
+LiteSpeed/([\d.]+)	body	LiteSpeed	MEDIUM	litespeedtech	litespeed_web_server
+gunicorn/([\d.]+)	header	Gunicorn	HIGH	gunicorn	gunicorn
+Gunicorn/([\d.]+)	body	Gunicorn	MEDIUM	gunicorn	gunicorn
+^Werkzeug/([\d.]+)	header	Werkzeug	HIGH	palletsprojects	werkzeug
+Werkzeug/([\d.]+)	body	Werkzeug	MEDIUM	palletsprojects	werkzeug
+^Jetty\((\d+\.\d+[\.\d]*)\)	header	Jetty	HIGH	eclipse	jetty
+Jetty/([\d.]+)	body	Jetty	MEDIUM	eclipse	jetty
+^Apache-Coyote/([\d.]+)	header	Tomcat	HIGH	apache	tomcat
+Apache-Coyote/([\d.]+)	body	Tomcat	MEDIUM	apache	tomcat
+Tomcat/([\d.]+)	header	Tomcat	HIGH	apache	tomcat
+Tomcat/([\d.]+)	body	Tomcat	MEDIUM	apache	tomcat
+# PROGRAMMING LANGUAGES
+^PHP/([\d.]+)	header	PHP	HIGH	php	php
+PHP/([\d.]+)	body	PHP	MEDIUM	php	php
+^Python/([\d.]+)	header	Python	HIGH	python	python
+Python/([\d.]+)	body	Python	MEDIUM	python	python
+X-Powered-By.*ASP\.NET	header	ASP.NET	HIGH	microsoft	asp.net
+ASP\.NET/([\d.]+)	body	ASP.NET	MEDIUM	microsoft	asp.net
+X-AspNet-Version:\s*([\d.]+)	header	ASP.NET	HIGH	microsoft	asp.net
+# NODE.JS & EXPRESS
+^Express/([\d.]+)	header	Express	HIGH	expressjs	express
+Express/([\d.]+)	body	Express	MEDIUM	expressjs	express
+Node\.js/([\d.]+)	header	Node.js	HIGH	nodejs	node.js
+Node\.js/([\d.]+)	body	Node.js	MEDIUM	nodejs	node.js
+node/([\d.]+)	body	Node.js	MEDIUM	nodejs	node.js
+# SSL/TLS
+^OpenSSL/([\d.]+[a-z]?)	header	OpenSSL	HIGH	openssl	openssl
+OpenSSL/([\d.]+)	body	OpenSSL	MEDIUM	openssl	openssl
+^mod_ssl/([\d.]+)	header	mod_ssl	HIGH	modssl	mod_ssl
+mod_ssl/([\d.]+)	body	mod_ssl	MEDIUM	modssl	mod_ssl
+# COMPOUND SERVER HEADERS - Match anywhere in header (not just start)
+Apache/([\d.]+)	header	Apache	MEDIUM	apache	http_server
+OpenSSL/([\d.]+[a-z]?)	header	OpenSSL	MEDIUM	openssl	openssl
+PHP/([\d.]+)	header	PHP	MEDIUM	php	php
+mod_perl/([\d.]+)	header	mod_perl	MEDIUM	perl	mod_perl
+mod_python/([\d.]+)	header	mod_python	MEDIUM	python	mod_python
+mod_wsgi/([\d.]+)	header	mod_wsgi	MEDIUM	python	mod_wsgi
+DAV/([\d.]+)	header	mod_dav	MEDIUM	apache	mod_dav
+# Windows specific
+\(Win64\)	header	Windows Server	LOW	microsoft	windows
+\(Win32\)	header	Windows Server	LOW	microsoft	windows
+\(Windows\)	header	Windows Server	LOW	microsoft	windows
+# CMS - META TAGS & PATTERNS
+<meta\s+name=["\']generator["\']\s+content=["\']WordPress\s+([\d.]+)	body	WordPress	HIGH	wordpress	wordpress
+WordPress/([\d.]+)	header	WordPress	HIGH	wordpress	wordpress
+WordPress/([\d.]+)	body	WordPress	HIGH	wordpress	wordpress
+/wp-content/	body	WordPress	LOW	wordpress	wordpress
+/wp-includes/	body	WordPress	LOW	wordpress	wordpress
+wp-json/wp/v2	body	WordPress	MEDIUM	wordpress	wordpress
+<meta\s+name=["\']generator["\']\s+content=["\']Joomla!\s+([\d.]+)	body	Joomla	HIGH	joomla	joomla
+Joomla/([\d.]+)	header	Joomla	HIGH	joomla	joomla
+Joomla/([\d.]+)	body	Joomla	HIGH	joomla	joomla
+/media/jui/	body	Joomla	MEDIUM	joomla	joomla
+<meta\s+name=["\']generator["\']\s+content=["\']Drupal\s+([\d.]+)	body	Drupal	HIGH	drupal	drupal
+Drupal/([\d.]+)	header	Drupal	HIGH	drupal	drupal
+Drupal/([\d.]+)	body	Drupal	HIGH	drupal	drupal
+Drupal\.settings	body	Drupal	MEDIUM	drupal	drupal
+<meta\s+name=["\']generator["\']\s+content=["\']Magento.*?([\d.]+)	body	Magento	HIGH	magento	magento
+Magento/([\d.]+)	header	Magento	HIGH	magento	magento
+Magento/([\d.]+)	body	Magento	HIGH	magento	magento
+X-Magento-Cache	header	Magento	MEDIUM	magento	magento
+<meta\s+name=["\']generator["\']\s+content=["\']PrestaShop\s+([\d.]+)	body	PrestaShop	HIGH	prestashop	prestashop
+PrestaShop/([\d.]+)	header	PrestaShop	HIGH	prestashop	prestashop
+PrestaShop/([\d.]+)	body	PrestaShop	HIGH	prestashop	prestashop
+Shopify\.theme	body	Shopify	MEDIUM	shopify	shopify
+Shopify\.cdnHost	body	Shopify	MEDIUM	shopify	shopify
+WooCommerce\s+([\d.]+)	body	WooCommerce	HIGH	automattic	woocommerce
+woocommerce/([\d.]+)	body	WooCommerce	MEDIUM	automattic	woocommerce
+# JAVASCRIPT FRAMEWORKS
+["\']react["\']\s*:\s*["\']\^?([\d.]+)	body	React	MEDIUM	facebook	react
+react@([\d.]+)	body	React	MEDIUM	facebook	react
+React/([\d.]+)	header	React	HIGH	facebook	react
+React/([\d.]+)	body	React	MEDIUM	facebook	react
+React\.version\s*=\s*["\']?([\d.]+)	body	React	HIGH	facebook	react
+["\']vue["\']\s*:\s*["\']\^?([\d.]+)	body	Vue.js	MEDIUM	vuejs	vue
+Vue/([\d.]+)	header	Vue.js	HIGH	vuejs	vue
+Vue/([\d.]+)	body	Vue.js	MEDIUM	vuejs	vue
+Vue\.version\s*=\s*["\']?([\d.]+)	body	Vue.js	HIGH	vuejs	vue
+["\']angular["\']\s*:\s*["\']\^?([\d.]+)	body	Angular	MEDIUM	angular	angular
+Angular/([\d.]+)	header	Angular	HIGH	angular	angular
+Angular/([\d.]+)	body	Angular	MEDIUM	angular	angular
+angular\.version\s*=\s*["\']?([\d.]+)	body	Angular	HIGH	angular	angular
+["\']jquery["\']\s*:\s*["\']\^?([\d.]+)	body	jQuery	MEDIUM	jquery	jquery
+jQuery\s+v([\d.]+)	body	jQuery	HIGH	jquery	jquery
+jquery-([\d.]+)\.min\.js	body	jQuery	HIGH	jquery	jquery
+jquery/([\d.]+)	body	jQuery	MEDIUM	jquery	jquery
+["\']bootstrap["\']\s*:\s*["\']\^?([\d.]+)	body	Bootstrap	MEDIUM	getbootstrap	bootstrap
+bootstrap/([\d.]+)	body	Bootstrap	MEDIUM	getbootstrap	bootstrap
+Bootstrap/([\d.]+)	header	Bootstrap	HIGH	getbootstrap	bootstrap
+["\']lodash["\']\s*:\s*["\']\^?([\d.]+)	body	Lodash	MEDIUM	lodash	lodash
+lodash@([\d.]+)	body	Lodash	MEDIUM	lodash	lodash
+lodash\.js/([\d.]+)	body	Lodash	HIGH	lodash	lodash
+cdn\.jsdelivr\.net/npm/lodash@([\d.]+)	body	Lodash	MEDIUM	lodash	lodash
+["\']axios["\']\s*:\s*["\']\^?([\d.]+)	body	Axios	MEDIUM	axios	axios
+axios@([\d.]+)	body	Axios	MEDIUM	axios	axios
+cdn\.jsdelivr\.net/npm/axios@([\d.]+)	body	Axios	MEDIUM	axios	axios
+["\']webpack["\']\s*:\s*["\']\^?([\d.]+)	body	Webpack	MEDIUM	webpack	webpack
+webpack@([\d.]+)	body	Webpack	MEDIUM	webpack	webpack
+# MODERN JS FRAMEWORKS & LIBRARIES
+["\']moment["\']\s*:\s*["\']\^?([\d.]+)	body	Moment.js	MEDIUM	moment	moment
+moment@([\d.]+)	body	Moment.js	MEDIUM	moment	moment
+cdn\.jsdelivr\.net/npm/moment@([\d.]+)	body	Moment.js	MEDIUM	moment	moment
+["\']dayjs["\']\s*:\s*["\']\^?([\d.]+)	body	Day.js	MEDIUM	dayjs	dayjs
+dayjs@([\d.]+)	body	Day.js	MEDIUM	dayjs	dayjs
+["\']date-fns["\']\s*:\s*["\']\^?([\d.]+)	body	date-fns	MEDIUM	date-fns	date-fns
+["\']chart\.js["\']\s*:\s*["\']\^?([\d.]+)	body	Chart.js	MEDIUM	chartjs	chart.js
+chart\.js@([\d.]+)	body	Chart.js	MEDIUM	chartjs	chart.js
+["\']d3["\']\s*:\s*["\']\^?([\d.]+)	body	D3.js	MEDIUM	d3	d3
+d3@([\d.]+)	body	D3.js	MEDIUM	d3	d3
+["\']three["\']\s*:\s*["\']\^?([\d.]+)	body	Three.js	MEDIUM	threejs	three.js
+three@([\d.]+)	body	Three.js	MEDIUM	threejs	three.js
+["\']gsap["\']\s*:\s*["\']\^?([\d.]+)	body	GSAP	MEDIUM	greensock	gsap
+gsap@([\d.]+)	body	GSAP	MEDIUM	greensock	gsap
+["\']animejs["\']\s*:\s*["\']\^?([\d.]+)	body	Anime.js	MEDIUM	animejs	anime.js
+["\']swiper["\']\s*:\s*["\']\^?([\d.]+)	body	Swiper	MEDIUM	swiper	swiper
+swiper@([\d.]+)	body	Swiper	MEDIUM	swiper	swiper
+["\']slick-carousel["\']\s*:\s*["\']\^?([\d.]+)	body	Slick	MEDIUM	slick-carousel	slick-carousel
+["\']fullpage\.js["\']\s*:\s*["\']\^?([\d.]+)	body	fullPage.js	MEDIUM	fullpage.js	fullpage.js
+["\']aos["\']\s*:\s*["\']\^?([\d.]+)	body	AOS	MEDIUM	aos	aos
+["\']typed\.js["\']\s*:\s*["\']\^?([\d.]+)	body	Typed.js	MEDIUM	typed.js	typed.js
+["\']select2["\']\s*:\s*["\']\^?([\d.]+)	body	Select2	MEDIUM	select2	select2
+["\']datatables["\']\s*:\s*["\']\^?([\d.]+)	body	DataTables	MEDIUM	datatables	datatables
+["\']quill["\']\s*:\s*["\']\^?([\d.]+)	body	Quill	MEDIUM	quill	quill
+["\']monaco-editor["\']\s*:\s*["\']\^?([\d.]+)	body	Monaco Editor	MEDIUM	microsoft	monaco-editor
+["\']ace-builds["\']\s*:\s*["\']\^?([\d.]+)	body	Ace Editor	MEDIUM	ace	ace-builds
+["\']codemirror["\']\s*:\s*["\']\^?([\d.]+)	body	CodeMirror	MEDIUM	codemirror	codemirror
+["\']prismjs["\']\s*:\s*["\']\^?([\d.]+)	body	Prism	MEDIUM	prismjs	prism
+["\']highlight\.js["\']\s*:\s*["\']\^?([\d.]+)	body	Highlight.js	MEDIUM	highlight.js	highlight.js
+["\']sweetalert2["\']\s*:\s*["\']\^?([\d.]+)	body	SweetAlert2	MEDIUM	sweetalert2	sweetalert2
+["\']toastr["\']\s*:\s*["\']\^?([\d.]+)	body	Toastr	MEDIUM	toastr	toastr
+["\']notyf["\']\s*:\s*["\']\^?([\d.]+)	body	Notyf	MEDIUM	notyf	notyf
+["\']tippy\.js["\']\s*:\s*["\']\^?([\d.]+)	body	Tippy.js	MEDIUM	tippy.js	tippy.js
+["\']popper\.js["\']\s*:\s*["\']\^?([\d.]+)	body	Popper.js	MEDIUM	popperjs	popper.js
+["\']@floating-ui["\']\s*:\s*["\']\^?([\d.]+)	body	Floating UI	MEDIUM	floating-ui	floating-ui
+["\']zustand["\']\s*:\s*["\']\^?([\d.]+)	body	Zustand	MEDIUM	zustand	zustand
+["\']redux["\']\s*:\s*["\']\^?([\d.]+)	body	Redux	MEDIUM	reduxjs	redux
+redux@([\d.]+)	body	Redux	MEDIUM	reduxjs	redux
+["\']mobx["\']\s*:\s*["\']\^?([\d.]+)	body	MobX	MEDIUM	mobx	mobx
+["\']recoil["\']\s*:\s*["\']\^?([\d.]+)	body	Recoil	MEDIUM	recoiljs	recoil
+["\']urql["\']\s*:\s*["\']\^?([\d.]+)	body	URQL	MEDIUM	urql	urql
+["\']react-query["\']\s*:\s*["\']\^?([\d.]+)	body	React Query	MEDIUM	tanstack	react-query
+["\']@tanstack/react-query["\']\s*:\s*["\']\^?([\d.]+)	body	React Query	MEDIUM	tanstack	react-query
+["\']swr["\']\s*:\s*["\']\^?([\d.]+)	body	SWR	MEDIUM	vercel	swr
+["\']socket\.io-client["\']\s*:\s*["\']\^?([\d.]+)	body	Socket.IO	MEDIUM	socketio	socket.io
+["\']engine\.io-client["\']\s*:\s*["\']\^?([\d.]+)	body	Engine.IO	MEDIUM	socketio	engine.io
+["\']ws["\']\s*:\s*["\']\^?([\d.]+)	body	ws	MEDIUM	websockets	ws
+["\']@stomp/stompjs["\']\s*:\s*["\']\^?([\d.]+)	body	STOMP.js	MEDIUM	stomp	stompjs
+["\']mqtt["\']\s*:\s*["\']\^?([\d.]+)	body	MQTT.js	MEDIUM	mqtt	mqtt
+["\']paho-mqtt["\']\s*:\s*["\']\^?([\d.]+)	body	Paho MQTT	MEDIUM	eclipse	paho-mqtt
+["\']firebase["\']\s*:\s*["\']\^?([\d.]+)	body	Firebase	MEDIUM	firebase	firebase
+["\']@aws-sdk["\']\s*:\s*["\']\^?([\d.]+)	body	AWS SDK	MEDIUM	aws	aws-sdk
+["\']@azure["\']\s*:\s*["\']\^?([\d.]+)	body	Azure SDK	MEDIUM	microsoft	azure-sdk
+["\']@google-cloud["\']\s*:\s*["\']\^?([\d.]+)	body	Google Cloud SDK	MEDIUM	google	google-cloud
+["\']stripe["\']\s*:\s*["\']\^?([\d.]+)	body	Stripe.js	MEDIUM	stripe	stripe-js
+["\']paypal-checkout["\']\s*:\s*["\']\^?([\d.]+)	body	PayPal Checkout	MEDIUM	paypal	paypal-checkout
+["\']@auth0/auth0-spa-js["\']\s*:\s*["\']\^?([\d.]+)	body	Auth0	MEDIUM	auth0	auth0-spa-js
+["\']keycloak-js["\']\s*:\s*["\']\^?([\d.]+)	body	Keycloak	MEDIUM	keycloak	keycloak-js
+["\']oidc-client-ts["\']\s*:\s*["\']\^?([\d.]+)	body	OIDC Client	MEDIUM	oidc-client-ts	oidc-client-ts
+["\']js-cookie["\']\s*:\s*["\']\^?([\d.]+)	body	js-cookie	MEDIUM	js-cookie	js-cookie
+["\']cookie-parser["\']\s*:\s*["\']\^?([\d.]+)	body	cookie-parser	MEDIUM	cookie-parser	cookie-parser
+["\']uuid["\']\s*:\s*["\']\^?([\d.]+)	body	UUID	MEDIUM	uuid	uuid
+["\']nanoid["\']\s*:\s*["\']\^?([\d.]+)	body	Nano ID	MEDIUM	nanoid	nanoid
+["\']bcryptjs["\']\s*:\s*["\']\^?([\d.]+)	body	bcrypt.js	MEDIUM	bcryptjs	bcryptjs
+["\']crypto-js["\']\s*:\s*["\']\^?([\d.]+)	body	CryptoJS	MEDIUM	crypto-js	crypto-js
+["\']jsencrypt["\']\s*:\s*["\']\^?([\d.]+)	body	JSEncrypt	MEDIUM	jsencrypt	jsencrypt
+["\']forge["\']\s*:\s*["\']\^?([\d.]+)	body	node-forge	MEDIUM	node-forge	node-forge
+["\']validator["\']\s*:\s*["\']\^?([\d.]+)	body	validator.js	MEDIUM	validator	validator
+["\']yup["\']\s*:\s*["\']\^?([\d.]+)	body	Yup	MEDIUM	yup	yup
+["\']joi["\']\s*:\s*["\']\^?([\d.]+)	body	Joi	MEDIUM	joi	joi
+["\']zod["\']\s*:\s*["\']\^?([\d.]+)	body	Zod	MEDIUM	zod	zod
+["\']class-validator["\']\s*:\s*["\']\^?([\d.]+)	body	class-validator	MEDIUM	typestack	class-validator
+["\']ajv["\']\s*:\s*["\']\^?([\d.]+)	body	Ajv	MEDIUM	ajv	ajv
+["\']superstruct["\']\s*:\s*["\']\^?([\d.]+)	body	Superstruct	MEDIUM	superstruct	superstruct
+["\']react-hook-form["\']\s*:\s*["\']\^?([\d.]+)	body	React Hook Form	MEDIUM	react-hook-form	react-hook-form
+["\']formik["\']\s*:\s*["\']\^?([\d.]+)	body	Formik	MEDIUM	formik	formik
+["\']final-form["\']\s*:\s*["\']\^?([\d.]+)	body	Final Form	MEDIUM	final-form	final-form
+["\']react-router["\']\s*:\s*["\']\^?([\d.]+)	body	React Router	MEDIUM	remix-run	react-router
+["\']react-router-dom["\']\s*:\s*["\']\^?([\d.]+)	body	React Router DOM	MEDIUM	remix-run	react-router
+["\']@reach/router["\']\s*:\s*["\']\^?([\d.]+)	body	Reach Router	MEDIUM	reach	reach-router
+["\']history["\']\s*:\s*["\']\^?([\d.]+)	body	history	MEDIUM	remix-run	history
+["\']immer["\']\s*:\s*["\']\^?([\d.]+)	body	Immer	MEDIUM	immerjs	immer
+["\']ramda["\']\s*:\s*["\']\^?([\d.]+)	body	Ramda	MEDIUM	ramda	ramda
+["\']underscore["\']\s*:\s*["\']\^?([\d.]+)	body	Underscore	MEDIUM	jashkenas	underscore
+["\']core-js["\']\s*:\s*["\']\^?([\d.]+)	body	core-js	MEDIUM	zloirock	core-js
+["\']regenerator-runtime["\']\s*:\s*["\']\^?([\d.]+)	body	regenerator-runtime	MEDIUM	facebook	regenerator
+["\']@babel/runtime["\']\s*:\s*["\']\^?([\d.]+)	body	Babel Runtime	MEDIUM	babel	babel
+["\']tslib["\']\s*:\s*["\']\^?([\d.]+)	body	tslib	MEDIUM	microsoft	tslib
+["\']html-react-parser["\']\s*:\s*["\']\^?([\d.]+)	body	html-react-parser	MEDIUM	html-react-parser	html-react-parser
+["\']dompurify["\']\s*:\s*["\']\^?([\d.]+)	body	DOMPurify	MEDIUM	cure53	dompurify
+["\']sanitize-html["\']\s*:\s*["\']\^?([\d.]+)	body	sanitize-html	MEDIUM	sanitize-html	sanitize-html
+["\']xss["\']\s*:\s*["\']\^?([\d.]+)	body	xss	MEDIUM	leizongmin	xss
+["\']js-yaml["\']\s*:\s*["\']\^?([\d.]+)	body	js-yaml	MEDIUM	nodeca	js-yaml
+["\']yaml["\']\s*:\s*["\']\^?([\d.]+)	body	YAML	MEDIUM	eemeli	yaml
+["\']marked["\']\s*:\s*["\']\^?([\d.]+)	body	marked	MEDIUM	markedjs	marked
+["\']markdown-it["\']\s*:\s*["\']\^?([\d.]+)	body	markdown-it	MEDIUM	markdown-it	markdown-it
+["\']turndown["\']\s*:\s*["\']\^?([\d.]+)	body	Turndown	MEDIUM	domchristie	turndown
+["\']cheerio["\']\s*:\s*["\']\^?([\d.]+)	body	Cheerio	MEDIUM	cheeriojs	cheerio
+["\'](/kali/|/home/)ta([\d.]+)	body	Puppeteer	MEDIUM	puppeteer	puppeteer
+["\']playwright["\']\s*:\s*["\']\^?([\d.]+)	body	Playwright	MEDIUM	microsoft	playwright
+["\']cypress["\']\s*:\s*["\']\^?([\d.]+)	body	Cypress	MEDIUM	cypress-io	cypress
+["\']selenium-webdriver["\']\s*:\s*["\']\^?([\d.]+)	body	Selenium	MEDIUM	seleniumhq	selenium
+["\']webdriverio["\']\s*:\s*["\']\^?([\d.]+)	body	WebdriverIO	MEDIUM	webdriverio	webdriverio
+["\']@testing-library/react["\']\s*:\s*["\']\^?([\d.]+)	body	Testing Library	MEDIUM	testing-library	react-testing-library
+["\']@testing-library/jest-dom["\']\s*:\s*["\']\^?([\d.]+)	body	Jest DOM	MEDIUM	testing-library	jest-dom
+["\']vitest["\']\s*:\s*["\']\^?([\d.]+)	body	Vitest	MEDIUM	vitest-dev	vitest
+["\']playwright-core["\']\s*:\s*["\']\^?([\d.]+)	body	Playwright Core	MEDIUM	microsoft	playwright
+["\']@playwright/test["\']\s*:\s*["\']\^?([\d.]+)	body	Playwright Test	MEDIUM	microsoft	playwright
+["\']ts-node["\']\s*:\s*["\']\^?([\d.]+)	body	ts-node	MEDIUM	typestrong	ts-node
+["\']tsx["\']\s*:\s*["\']\^?([\d.]+)	body	tsx	MEDIUM	privatenumber	tsx
+["\']esbuild["\']\s*:\s*["\']\^?([\d.]+)	body	esbuild	MEDIUM	evanw	esbuild
+["\']vite["\']\s*:\s*["\']\^?([\d.]+)	body	Vite	MEDIUM	vitejs	vite
+vite@([\d.]+)	body	Vite	MEDIUM	vitejs	vite
+["\']@vitejs/plugin-react["\']\s*:\s*["\']\^?([\d.]+)	body	Vite React Plugin	MEDIUM	vitejs	vite
+["\']rollup["\']\s*:\s*["\']\^?([\d.]+)	body	Rollup	MEDIUM	rollup	rollup
+["\']parcel["\']\s*:\s*["\']\^?([\d.]+)	body	Parcel	MEDIUM	parcel-bundler	parcel
+["\']@parcel/core["\']\s*:\s*["\']\^?([\d.]+)	body	Parcel Core	MEDIUM	parcel-bundler	parcel
+["\']snowpack["\']\s*:\s*["\']\^?([\d.]+)	body	Snowpack	MEDIUM	snowpackjs	snowpack
+["\']wmr["\']\s*:\s*["\']\^?([\d.]+)	body	WMR	MEDIUM	preactjs	wmr
+["\'](/kali/|/home/)ta["\']\s*:\s*["\']\^?([\d.]+)	body	Preact	MEDIUM	preactjs	preact
+["\']lit["\']\s*:\s*["\']\^?([\d.]+)	body	Lit	MEDIUM	lit	lit
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Svelte	MEDIUM	sveltejs	svelte
+["\']solid-js["\']\s*:\s*["\']\^?([\d.]+)	body	SolidJS	MEDIUM	solidjs	solid-js
+["\']alpinejs["\']\s*:\s*["\']\^?([\d.]+)	body	Alpine.js	MEDIUM	alpinejs	alpine
+["\']htmx\.org["\']\s*:\s*["\']\^?([\d.]+)	body	htmx	MEDIUM	bigskysoftware	htmx
+["\']unpoly["\']\s*:\s*["\']\^?([\d.]+)	body	Unpoly	MEDIUM	unpoly	unpoly
+["\']turbolinks["\']\s*:\s*["\']\^?([\d.]+)	body	Turbolinks	MEDIUM	turbolinks	turbolinks
+["\']hotwire["\']\s*:\s*["\']\^?([\d.]+)	body	Hotwire	MEDIUM	hotwired	hotwire
+["\']@hotwired/turbo["\']\s*:\s*["\']\^?([\d.]+)	body	Turbo	MEDIUM	hotwired	turbo
+["\']@hotwired/stimulus["\']\s*:\s*["\']\^?([\d.]+)	body	Stimulus	MEDIUM	hotwired	stimulus
+["\']inertiajs["\']\s*:\s*["\']\^?([\d.]+)	body	Inertia.js	MEDIUM	inertiajs	inertia
+["\']@inertiajs/react["\']\s*:\s*["\']\^?([\d.]+)	body	Inertia React	MEDIUM	inertiajs	inertia
+["\']@inertiajs/vue3["\']\s*:\s*["\']\^?([\d.]+)	body	Inertia Vue	MEDIUM	inertiajs	inertia
+["\']nprogress["\']\s*:\s*["\']\^?([\d.]+)	body	NProgress	MEDIUM	rstacruz	nprogress
+["\']pace-js["\']\s*:\s*["\']\^?([\d.]+)	body	Pace.js	MEDIUM	CodeByZach	pace
+["\']topbar["\']\s*:\s*["\']\^?([\d.]+)	body	topbar	MEDIUM	buunguyen	topbar
+["\']nanobar["\']\s*:\s*["\']\^?([\d.]+)	body	Nanobar	MEDIUM	jacoborus	nanobar
+["\']progressbar\.js["\']\s*:\s*["\']\^?([\d.]+)	body	ProgressBar.js	MEDIUM	kimmobrunfeldt	progressbar.js
+["\']lottie-web["\']\s*:\s*["\']\^?([\d.]+)	body	Lottie	MEDIUM	airbnb	lottie-web
+["\']@lottiefiles/react-lottie-player["\']\s*:\s*["\']\^?([\d.]+)	body	Lottie React	MEDIUM	lottiefiles	lottie-react
+["\']@lottiefiles/lottie-player["\']\s*:\s*["\']\^?([\d.]+)	body	Lottie Player	MEDIUM	lottiefiles	lottie-player
+["\']clipboard["\']\s*:\s*["\']\^?([\d.]+)	body	Clipboard.js	MEDIUM	zenorocha	clipboard
+["\']copy-to-clipboard["\']\s*:\s*["\']\^?([\d.]+)	body	copy-to-clipboard	MEDIUM	sudodoki	copy-to-clipboard
+["\']file-saver["\']\s*:\s*["\']\^?([\d.]+)	body	FileSaver.js	MEDIUM	eligrey	file-saver
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	uppy	MEDIUM	transloadit	uppy
+["\']dropzone["\']\s*:\s*["\']\^?([\d.]+)	body	Dropzone	MEDIUM	dropzone	dropzone
+["\']resumablejs["\']\s*:\s*["\']\^?([\d.]+)	body	Resumable.js	MEDIUM	resumable2	resumablejs
+["\']plupload["\']\s*:\s*["\']\^?([\d.]+)	body	Plupload	MEDIUM	moxiecode	plupload
+["\']fine-uploader["\']\s*:\s*["\']\^?([\d.]+)	body	Fine Uploader	MEDIUM	FineUploader	fine-uploader
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	blueimp-file-upload	MEDIUM	blueimp	jquery-file-upload
+["\']screenfull["\']\s*:\s*["\']\^?([\d.]+)	body	Screenfull.js	MEDIUM	sindresorhus	screenfull
+["\']fscreen["\']\s*:\s*["\']\^?([\d.]+)	body	fscreen	MEDIUM	rafaelgx	fscreen
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Leaflet	MEDIUM	Leaflet	Leaflet
+["\']mapbox-gl["\']\s*:\s*["\']\^?([\d.]+)	body	Mapbox GL	MEDIUM	mapbox	mapbox-gl
+["\']ol["\']\s*:\s*["\']\^?([\d.]+)	body	OpenLayers	MEDIUM	openlayers	openlayers
+["\']@googlemaps/js-api-loader["\']\s*:\s*["\']\^?([\d.]+)	body	Google Maps	MEDIUM	googlemaps	js-api-loader
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Video.js	MEDIUM	videojs	video.js
+["\']plyr["\']\s*:\s*["\']\^?([\d.]+)	body	Plyr	MEDIUM	sampotts	plyr
+["\']mediaelement["\']\s*:\s*["\']\^?([\d.]+)	body	MediaElement.js	MEDIUM	mediaelement	mediaelement
+["\']wavesurfer\.js["\']\s*:\s*["\']\^?([\d.]+)	body	Wavesurfer	MEDIUM	katspaugh	wavesurfer.js
+["\']howler["\']\s*:\s*["\']\^?([\d.]+)	body	Howler.js	MEDIUM	goldfire	howler
+["\']tone["\']\s*:\s*["\']\^?([\d.]+)	body	Tone.js	MEDIUM	Tonejs	Tone
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	waves.js	MEDIUM	foo123	waves
+["\']vconsole["\']\s*:\s*["\']\^?([\d.]+)	body	vConsole	MEDIUM	Tencent	vConsole
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	eruda	MEDIUM	eruda-dev	eruda
+["\']screenlog["\']\s*:\s*["\']\^?([\d.]+)	body	screenlog	MEDIUM	chinchang	screenlog
+["\']bowser["\']\s*:\s*["\']\^?([\d.]+)	body	Bowser	MEDIUM	lancedikson	bowser
+["\']platform["\']\s*:\s*["\']\^?([\d.]+)	body	Platform.js	MEDIUM	bestiejs	platform.js
+["\']ua-parser-js["\']\s*:\s*["\']\^?([\d.]+)	body	UAParser.js	MEDIUM	faisalman	ua-parser-js
+["\']detectrtc["\']\s*:\s*["\']\^?([\d.]+)	body	DetectRTC	MEDIUM	muaz-khan	DetectRTC
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Modernizr	MEDIUM	Modernizr	Modernizr
+["\']@testing-library/dom["\']\s*:\s*["\']\^?([\d.]+)	body	Testing Library DOM	MEDIUM	testing-library	dom-testing-library
+["\']cypress-real-events["\']\s*:\s*["\']\^?([\d.]+)	body	Cypress Real Events	MEDIUM	cypress-io	cypress-real-events
+["\']@cypress/webpack-preprocessor["\']\s*:\s*["\']\^?([\d.]+)	body	Cypress Webpack	MEDIUM	cypress-io	webpack-preprocessor
+["\']@percy/cypress["\']\s*:\s*["\']\^?([\d.]+)	body	Percy Cypress	MEDIUM	percy	percy-cypress
+["\']@applitools/eyes-cypress["\']\s*:\s*["\']\^?([\d.]+)	body	Applitools Eyes	MEDIUM	applitools	eyes-cypress
+["\']newman["\']\s*:\s*["\']\^?([\d.]+)	body	Newman	MEDIUM	postmanlabs	newman
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Postman Runtime	MEDIUM	postmanlabs	postman-runtime
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Postman Collection	MEDIUM	postmanlabs	postman-collection
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Postman Sandbox	MEDIUM	postmanlabs	postman-sandbox
+["\']k6["\']\s*:\s*["\']\^?([\d.]+)	body	k6	MEDIUM	grafana	k6
+["\']artillery["\']\s*:\s*["\']\^?([\d.]+)	body	Artillery	MEDIUM	artilleryio	artillery
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	karma	MEDIUM	karma-runner	karma
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Mocha	MEDIUM	mochajs	mocha
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jasmine	MEDIUM	jasmine	jasmine
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	QUnit	MEDIUM	qunitjs	qunit
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Sinon.JS	MEDIUM	sinonjs	sinon
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Chai	MEDIUM	chaijs	chai
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Expect.js	MEDIUM	Automattic	expect.js
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Should.js	MEDIUM	shouldjs	should.js
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Tape	MEDIUM	substack	tape
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Ava	MEDIUM	avajs	ava
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest	MEDIUM	facebook	jest
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest Worker	MEDIUM	facebook	jest-worker
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest CLI	MEDIUM	facebook	jest-cli
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest Config	MEDIUM	facebook	jest-config
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest Environment	MEDIUM	facebook	jest-environment-jsdom
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest Runner	MEDIUM	facebook	jest-runner
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest Snapshot	MEDIUM	facebook	jest-snapshot
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest Test Result	MEDIUM	facebook	jest-test-result
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest Transform	MEDIUM	facebook	jest-transform
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest Types	MEDIUM	facebook	jest-types
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest Util	MEDIUM	facebook	jest-util
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest Validate	MEDIUM	facebook	jest-validate
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest Watch	MEDIUM	facebook	jest-watch-typeahead
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Jest Watcher	MEDIUM	facebook	jest-watcher
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Pretty Format	MEDIUM	facebook	pretty-format
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@jest/console	MEDIUM	facebook	jest-console
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@jest/core	MEDIUM	facebook	jest-core
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@jest/environment	MEDIUM	facebook	jest-environment
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@jest/expect	MEDIUM	facebook	jest-expect
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@jest/fake-timers	MEDIUM	facebook	jest-fake-timers
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@jest/globals	MEDIUM	facebook	jest-globals
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@jest/reporters	MEDIUM	facebook	jest-reporters
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@jest/schemas	MEDIUM	facebook	jest-schemas
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@jest/source-map	MEDIUM	facebook	jest-source-map
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@jest/test-sequencer	MEDIUM	facebook	jest-test-sequencer
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Babel Core	MEDIUM	babel	babel-core
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Babel Parser	MEDIUM	babel	babel-parser
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Babel Generator	MEDIUM	babel	babel-generator
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Babel Types	MEDIUM	babel	babel-types
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Babel Traverse	MEDIUM	babel	babel-traverse
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Babel Template	MEDIUM	babel	babel-template
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Babel Helpers	MEDIUM	babel	babel-helpers
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Babel Highlight	MEDIUM	babel	babel-highlight
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Babel Code Frame	MEDIUM	babel	babel-code-frame
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/code-frame	MEDIUM	babel	babel-code-frame
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/compat-data	MEDIUM	babel	babel-compat-data
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/core	MEDIUM	babel	babel-core
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/generator	MEDIUM	babel	babel-generator
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/helper-compilation-targets	MEDIUM	babel	babel-helper-compilation-targets
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/helper-module-imports	MEDIUM	babel	babel-helper-module-imports
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/helper-module-transforms	MEDIUM	babel	babel-helper-module-transforms
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/helper-plugin-utils	MEDIUM	babel	babel-helper-plugin-utils
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/helper-simple-access	MEDIUM	babel	babel-helper-simple-access
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/helper-split-export-declaration	MEDIUM	babel	babel-helper-split-export-declaration
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/helper-string-parser	MEDIUM	babel	babel-helper-string-parser
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/helper-validator-identifier	MEDIUM	babel	babel-helper-validator-identifier
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/helper-validator-option	MEDIUM	babel	babel-helper-validator-option
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/helpers	MEDIUM	babel	babel-helpers
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/highlight	MEDIUM	babel	babel-highlight
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/parser	MEDIUM	babel	babel-parser
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/plugin-syntax-jsx	MEDIUM	babel	babel-plugin-syntax-jsx
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/plugin-transform-react-jsx	MEDIUM	babel	babel-plugin-transform-react-jsx
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/preset-env	MEDIUM	babel	babel-preset-env
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/preset-react	MEDIUM	babel	babel-preset-react
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/preset-typescript	MEDIUM	babel	babel-preset-typescript
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/traverse	MEDIUM	babel	babel-traverse
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@babel/types	MEDIUM	babel	babel-types
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	TypeScript	MEDIUM	microsoft	typescript
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	TSLint	MEDIUM	palantir	tslint
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	ESLint	MEDIUM	eslint	eslint
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Prettier	MEDIUM	prettier	prettier
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@eslint/js	MEDIUM	eslint	eslint-js
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@eslint/eslintrc	MEDIUM	eslint	eslintrc
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	globals	MEDIUM	sindresorhus	globals
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	eslint-scope	MEDIUM	eslint	eslint-scope
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	esquery	MEDIUM	esquery	esquery
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@eslint-community/eslint-utils	MEDIUM	eslint-community	eslint-utils
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@eslint-community/regexpp	MEDIUM	eslint-community	regexpp
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@eslint/config-array	MEDIUM	eslint	config-array
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@eslint/eslintrc	MEDIUM	eslint	eslintrc
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@eslint/js	MEDIUM	eslint	eslint-js
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	eslint-config-prettier	MEDIUM	prettier	eslint-config-prettier
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	eslint-plugin-import	MEDIUM	import-js	eslint-plugin-import
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	eslint-plugin-jsx-a11y	MEDIUM	jsx-eslint	eslint-plugin-jsx-a11y
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	eslint-plugin-react	MEDIUM	yannickcr	eslint-plugin-react
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	eslint-plugin-react-hooks	MEDIUM	facebook	eslint-plugin-react-hooks
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@typescript-eslint/parser	MEDIUM	typescript-eslint	typescript-eslint
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@typescript-eslint/eslint-plugin	MEDIUM	typescript-eslint	typescript-eslint
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@typescript-eslint/scope-manager	MEDIUM	typescript-eslint	typescript-eslint
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@typescript-eslint/type-utils	MEDIUM	typescript-eslint	typescript-eslint
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@typescript-eslint/types	MEDIUM	typescript-eslint	typescript-eslint
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@typescript-eslint/typescript-estree	MEDIUM	typescript-eslint	typescript-estree
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@typescript-eslint/utils	MEDIUM	typescript-eslint	typescript-eslint
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@typescript-eslint/visitor-keys	MEDIUM	typescript-eslint	visitor-keys
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	TypeScript ESLint	MEDIUM	typescript-eslint	typescript-eslint
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	SWC	MEDIUM	swc-project	swc
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@swc/core	MEDIUM	swc-project	swc
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@swc/helpers	MEDIUM	swc-project	swc
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@swc/wasm	MEDIUM	swc-project	swc
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Parcel	MEDIUM	parcel-bundler	parcel
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@parcel/core	MEDIUM	parcel-bundler	parcel
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@parcel/package-manager	MEDIUM	parcel-bundler	parcel
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@parcel/plugin	MEDIUM	parcel-bundler	parcel
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@parcel/types	MEDIUM	parcel-bundler	parcel
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@parcel/utils	MEDIUM	parcel-bundler	parcel
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@parcel/watcher	MEDIUM	parcel-bundler	parcel
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@parcel/workers	MEDIUM	parcel-bundler	parcel
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	React Native	MEDIUM	facebook	react-native
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Expo	MEDIUM	expo	expo
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@expo/cli	MEDIUM	expo	expo-cli
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@expo/config	MEDIUM	expo	expo-config
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@expo/metro-config	MEDIUM	expo	expo-metro-config
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Electron	MEDIUM	electron	electron
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Capacitor	MEDIUM	capacitor	capacitor
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@capacitor/core	MEDIUM	capacitor	capacitor
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@capacitor/android	MEDIUM	capacitor	capacitor
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@capacitor/ios	MEDIUM	capacitor	capacitor
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Ionic	MEDIUM	ionic	ionic
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@ionic/core	MEDIUM	ionic	ionic
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@ionic/react	MEDIUM	ionic	ionic-react
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@ionic/vue	MEDIUM	ionic	ionic-vue
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	NativeScript	MEDIUM	nativescript	nativescript
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nativescript/core	MEDIUM	nativescript	nativescript
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Quasar	MEDIUM	quasarframework	quasar
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@quasar/app	MEDIUM	quasarframework	quasar
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@quasar/extras	MEDIUM	quasarframework	quasar
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	Vuetify	MEDIUM	vuetify	vuetify
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/composition-api	MEDIUM	nuxt	composition-api
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxt/content	MEDIUM	nuxt	content
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxt/kit	MEDIUM	nuxt	nuxt-kit
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxt/schema	MEDIUM	nuxt	nuxt-schema
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxt/ui	MEDIUM	nuxt	nuxt-ui
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/axios	MEDIUM	nuxt-community	axios-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/auth	MEDIUM	nuxt-community	auth-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/pwa	MEDIUM	nuxt-community	pwa-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/sitemap	MEDIUM	nuxt-community	sitemap-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/robots	MEDIUM	nuxt-community	robots-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/dotenv	MEDIUM	nuxt-community	dotenv-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/eslint-config	MEDIUM	nuxt-community	eslint-config
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/google-analytics	MEDIUM	nuxt-community	google-analytics-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/google-tag-manager	MEDIUM	nuxt-community	google-tag-manager-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/markdownit	MEDIUM	nuxt-community	markdownit-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/moment	MEDIUM	nuxt-community	moment-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/proxy	MEDIUM	nuxt-community	proxy-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/style-resources	MEDIUM	nuxt-community	style-resources-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/tailwindcss	MEDIUM	nuxt-community	tailwindcss-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/vuetify	MEDIUM	nuxt-community	vuetify-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/i18n	MEDIUM	nuxt-community	i18n-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/color-mode	MEDIUM	nuxt-community	color-mode-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/device	MEDIUM	nuxt-community	device-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/firebase	MEDIUM	nuxt-community	firebase-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/google-fonts	MEDIUM	nuxt-community	google-fonts-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/html-validator	MEDIUM	nuxt-community	html-validator-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/image	MEDIUM	nuxt-community	image-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/localtunnel	MEDIUM	nuxt-community	localtunnel-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/opencollective	MEDIUM	nuxt-community	opencollective-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/prismic	MEDIUM	nuxt-community	prismic-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/sanity	MEDIUM	nuxt-community	sanity-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/segment	MEDIUM	nuxt-community	segment-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/sentry	MEDIUM	nuxt-community	sentry-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/sitemap	MEDIUM	nuxt-community	sitemap-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/strapi	MEDIUM	nuxt-community	strapi-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/storybook	MEDIUM	nuxt-community	storybook-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/supabase	MEDIUM	nuxt-community	supabase-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/toast	MEDIUM	nuxt-community	toast-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/web-vitals	MEDIUM	nuxt-community	web-vitals-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/webpackmonitor	MEDIUM	nuxt-community	webpackmonitor-module
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@nuxtjs/youch	MEDIUM	nuxt-community	youch
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	create-nuxt-app	MEDIUM	nuxt	create-nuxt-app
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	create-react-app	MEDIUM	facebook	create-react-app
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-scripts	MEDIUM	facebook	react-scripts
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-community/cli	MEDIUM	react-native-community	cli
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native/polyfills	MEDIUM	facebook	react-native-polyfills
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-navigation/native	MEDIUM	react-navigation	react-navigation
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-navigation/stack	MEDIUM	react-navigation	react-navigation-stack
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-navigation/bottom-tabs	MEDIUM	react-navigation	react-navigation-bottom-tabs
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-navigation/drawer	MEDIUM	react-navigation	react-navigation-drawer
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-navigation/material-top-tabs	MEDIUM	react-navigation	react-navigation-material-top-tabs
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-navigation/native-stack	MEDIUM	react-navigation	react-navigation-native-stack
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-webview	MEDIUM	react-native-community	react-native-webview
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-screens	MEDIUM	software-mansion	react-native-screens
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-safe-area-context	MEDIUM	th3rdwave	react-native-safe-area-context
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-gesture-handler	MEDIUM	software-mansion	react-native-gesture-handler
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-reanimated	MEDIUM	software-mansion	react-native-reanimated
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-vector-icons	MEDIUM	oblador	react-native-vector-icons
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-maps	MEDIUM	react-native-maps	react-native-maps
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-camera	MEDIUM	react-native-community	react-native-camera
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-device-info	MEDIUM	react-native-device-info	react-native-device-info
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-share	MEDIUM	react-native-share	react-native-share
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-fs	MEDIUM	itinance	react-native-fs
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-async-storage	MEDIUM	react-native-async-storage	async-storage
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-async-storage/async-storage	MEDIUM	react-native-async-storage	async-storage
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-keychain	MEDIUM	oblador	react-native-keychain
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-permissions	MEDIUM	zoontek	react-native-permissions
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-image-picker	MEDIUM	react-native-image-picker	react-native-image-picker
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-document-picker	MEDIUM	react-native-document-picker	react-native-document-picker
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-clipboard	MEDIUM	react-native-clipboard	react-native-clipboard
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-haptic-feedback	MEDIUM	react-native-haptic-feedback	react-native-haptic-feedback
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-linear-gradient	MEDIUM	react-native-linear-gradient	react-native-linear-gradient
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-modal	MEDIUM	react-native-modal	react-native-modal
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-picker-select	MEDIUM	react-native-picker-select	react-native-picker-select
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-snap-carousel	MEDIUM	react-native-snap-carousel	react-native-snap-carousel
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-tab-view	MEDIUM	react-native-tab-view	react-native-tab-view
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-paper	MEDIUM	react-native-paper	react-native-paper
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-elements	MEDIUM	react-native-elements	react-native-elements
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	native-base	MEDIUM	native-base	native-base
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@ui-kitten/components	MEDIUM	akveo	react-native-ui-kitten
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-ui-lib	MEDIUM	wix	react-native-ui-lib
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@rneui/base	MEDIUM	react-native-elements	react-native-elements
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@rneui/themed	MEDIUM	react-native-elements	react-native-elements-themed
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-material-kit	MEDIUM	react-native-material-kit	react-native-material-kit
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-material-ui	MEDIUM	xotnam	react-native-material-ui
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-nested-listview	MEDIUM	react-native-nested-listview	react-native-nested-listview
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-sectioned-multi-select	MEDIUM	react-native-sectioned-multi-select	react-native-sectioned-multi-select
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-dropdown-picker	MEDIUM	react-native-dropdown-picker	react-native-dropdown-picker
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-autocomplete-input	MEDIUM	react-native-autocomplete-input	react-native-autocomplete-input
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-tag-input	MEDIUM	react-native-tag-input	react-native-tag-input
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-chip-input	MEDIUM	react-native-chip-input	react-native-chip-input
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-step-indicator	MEDIUM	react-native-step-indicator	react-native-step-indicator
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-progress	MEDIUM	react-native-progress	react-native-progress
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-spinkit	MEDIUM	react-native-spinkit	react-native-spinkit
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-lottie	MEDIUM	react-native-lottie	react-native-lottie
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	lottie-react-native	MEDIUM	lottie-react-native	lottie-react-native
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-animatable	MEDIUM	react-native-animatable	react-native-animatable
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-interactable	MEDIUM	wix	react-native-interactable
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-swiper	MEDIUM	react-native-swiper	react-native-swiper
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-deck-swiper	MEDIUM	react-native-deck-swiper	react-native-deck-swiper
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-app-intro-slider	MEDIUM	react-native-app-intro-slider	react-native-app-intro-slider
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-onboarding-swiper	MEDIUM	react-native-onboarding-swiper	react-native-onboarding-swiper
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-walkthrough-tooltip	MEDIUM	react-native-walkthrough-tooltip	react-native-walkthrough-tooltip
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-floating-action	MEDIUM	react-native-floating-action	react-native-floating-action
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-action-button	MEDIUM	react-native-action-button	react-native-action-button
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-speed-dial	MEDIUM	react-native-speed-dial	react-native-speed-dial
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-popup-menu	MEDIUM	react-native-popup-menu	react-native-popup-menu
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-material-menu	MEDIUM	react-native-material-menu	react-native-material-menu
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-context-menu-view	MEDIUM	react-native-context-menu-view	react-native-context-menu-view
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-swipe-list-view	MEDIUM	react-native-swipe-list-view	react-native-swipe-list-view
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-swipeable	MEDIUM	react-native-swipeable	react-native-swipeable
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-sortable-list	MEDIUM	react-native-sortable-list	react-native-sortable-list
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-draggable-flatlist	MEDIUM	react-native-draggable-flatlist	react-native-draggable-flatlist
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-swipeable-list	MEDIUM	react-native-swipeable-list	react-native-swipeable-list
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-draggable-grid	MEDIUM	react-native-draggable-grid	react-native-draggable-grid
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-sortable-grid	MEDIUM	react-native-sortable-grid	react-native-sortable-grid
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-sticky-keyboard-accessory	MEDIUM	react-native-sticky-keyboard-accessory	react-native-sticky-keyboard-accessory
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-keyboard-aware-scroll-view	MEDIUM	react-native-keyboard-aware-scroll-view	react-native-keyboard-aware-scroll-view
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-keyboard-manager	MEDIUM	react-native-keyboard-manager	react-native-keyboard-manager
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-input-scroll-view	MEDIUM	react-native-input-scroll-view	react-native-input-scroll-view
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-confirmation-code-field	MEDIUM	react-native-confirmation-code-field	react-native-confirmation-code-field
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-otp-inputs	MEDIUM	react-native-otp-inputs	react-native-otp-inputs
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-smooth-pincode-input	MEDIUM	react-native-smooth-pincode-input	react-native-smooth-pincode-input
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-pin-view	MEDIUM	react-native-pin-view	react-native-pin-view
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-credit-card-input	MEDIUM	react-native-credit-card-input	react-native-credit-card-input
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-masked-text	MEDIUM	react-native-masked-text	react-native-masked-text
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-text-input-mask	MEDIUM	react-native-text-input-mask	react-native-text-input-mask
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-calendars	MEDIUM	wix	react-native-calendars
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-date-picker	MEDIUM	react-native-date-picker	react-native-date-picker
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-datepicker	MEDIUM	react-native-datepicker	react-native-datepicker
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-datetimepicker	MEDIUM	react-native-datetimepicker	react-native-datetimepicker
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-maps	MEDIUM	react-native-maps	react-native-maps
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-geolocation-service	MEDIUM	react-native-geolocation-service	react-native-geolocation-service
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-location	MEDIUM	react-native-location	react-native-location
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-background-geolocation	MEDIUM	react-native-background-geolocation	react-native-background-geolocation
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-background-fetch	MEDIUM	react-native-background-fetch	react-native-background-fetch
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-push-notification	MEDIUM	react-native-push-notification	react-native-push-notification
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-firebase/app	MEDIUM	react-native-firebase	react-native-firebase
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-firebase/auth	MEDIUM	react-native-firebase	react-native-firebase-auth
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-firebase/firestore	MEDIUM	react-native-firebase	react-native-firebase-firestore
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-firebase/messaging	MEDIUM	react-native-firebase	react-native-firebase-messaging
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-firebase/storage	MEDIUM	react-native-firebase	react-native-firebase-storage
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-firebase/crashlytics	MEDIUM	react-native-firebase	react-native-firebase-crashlytics
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-firebase/perf	MEDIUM	react-native-firebase	react-native-firebase-perf
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-firebase/analytics	MEDIUM	react-native-firebase	react-native-firebase-analytics
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-firebase/remote-config	MEDIUM	react-native-firebase	react-native-firebase-remote-config
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-firebase/dynamic-links	MEDIUM	react-native-firebase	react-native-firebase-dynamic-links
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-firebase/in-app-messaging	MEDIUM	react-native-firebase	react-native-firebase-in-app-messaging
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@react-native-firebase/ml	MEDIUM	react-native-firebase	react-native-firebase-ml
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-onesignal	MEDIUM	react-native-onesignal	react-native-onesignal
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-branch	MEDIUM	react-native-branch	react-native-branch
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@segment/analytics-react-native	MEDIUM	segmentio	analytics-react-native
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/react-native	MEDIUM	bugsnag	react-native
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@sentry/react-native	MEDIUM	getsentry	sentry-react-native
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-fabric	MEDIUM	react-native-fabric	react-native-fabric
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-code-push	MEDIUM	microsoft	react-native-code-push
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	react-native-update	MEDIUM	react-native-update	react-native-update
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-updates	MEDIUM	expo	expo-updates
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-constants	MEDIUM	expo	expo-constants
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-device	MEDIUM	expo	expo-device
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-file-system	MEDIUM	expo	expo-file-system
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-image-picker	MEDIUM	expo	expo-image-picker
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-linking	MEDIUM	expo	expo-linking
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-local-authentication	MEDIUM	expo	expo-local-authentication
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-location	MEDIUM	expo	expo-location
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-media-library	MEDIUM	expo	expo-media-library
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-notifications	MEDIUM	expo	expo-notifications
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-permissions	MEDIUM	expo	expo-permissions
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-secure-store	MEDIUM	expo	expo-secure-store
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-splash-screen	MEDIUM	expo	expo-splash-screen
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-status-bar	MEDIUM	expo	expo-status-bar
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	expo-web-browser	MEDIUM	expo	expo-web-browser
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@sentry/browser	MEDIUM	getsentry	sentry-browser
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@sentry/node	MEDIUM	getsentry	sentry-node
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\?([\d.]+)	body	@sentry/core	MEDIUM	getsentry	sentry-core
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@sentry/tracing	MEDIUM	getsentry	sentry-tracing
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@sentry/integrations	MEDIUM	getsentry	sentry-integrations
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@sentry/utils	MEDIUM	getsentry	sentry-utils
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@sentry/hub	MEDIUM	getsentry	sentry-hub
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@sentry/minimal	MEDIUM	getsentry	sentry-minimal
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@sentry/types	MEDIUM	getsentry	sentry-types
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/browser	MEDIUM	bugsnag	bugsnag-js
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/node	MEDIUM	bugsnag	bugsnag-node
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-react	MEDIUM	bugsnag	bugsnag-plugin-react
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-vue	MEDIUM	bugsnag	bugsnag-plugin-vue
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-angular	MEDIUM	bugsnag	bugsnag-plugin-angular
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-express	MEDIUM	bugsnag	bugsnag-plugin-express
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-koa	MEDIUM	bugsnag	bugsnag-plugin-koa
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-restify	MEDIUM	bugsnag	bugsnag-plugin-restify
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-aws-lambda	MEDIUM	bugsnag	bugsnag-plugin-aws-lambda
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-browser-session	MEDIUM	bugsnag	bugsnag-plugin-browser-session
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-console-breadcrumbs	MEDIUM	bugsnag	bugsnag-plugin-console-breadcrumbs
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-interaction-breadcrumbs	MEDIUM	bugsnag	bugsnag-plugin-interaction-breadcrumbs
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-navigation-breadcrumbs	MEDIUM	bugsnag	bugsnag-plugin-navigation-breadcrumbs
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-network-breadcrumbs	MEDIUM	bugsnag	bugsnag-plugin-network-breadcrumbs
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-react-native-navigation	MEDIUM	bugsnag	bugsnag-plugin-react-native-navigation
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/plugin-react-navigation	MEDIUM	bugsnag	bugsnag-plugin-react-navigation
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/source-maps	MEDIUM	bugsnag	source-maps
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@bugsnag/core	MEDIUM	bugsnag	bugsnag-core
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	logrocket	MEDIUM	logrocket	logrocket
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@logrocket/react	MEDIUM	logrocket	logrocket-react
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@logrocket/redux	MEDIUM	logrocket	logrocket-redux
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@logrocket/ngrx	MEDIUM	logrocket	logrocket-ngrx
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@logrocket/vuex	MEDIUM	logrocket	logrocket-vuex
+["\'](/kali/|/home/)te["\']\s*:\s*["\']\^?([\d.]+)	body	@logrocket/mobile	MEDIUM	 has context menu▋
+# PHP FRAMEWORKS
+Laravel\s+v([\d.]+)	body	Laravel	HIGH	laravel	laravel
+Laravel/([\d.]+)	header	Laravel	HIGH	laravel	laravel
+Laravel/([\d.]+)	body	Laravel	HIGH	laravel	laravel
+laravel_session	body	Laravel	MEDIUM	laravel	laravel
+["\']laravel/framework["\']\s*:\s*["\']\^?([\d.]+)	body	Laravel	HIGH	laravel	laravel
+CodeIgniter\s+([\d.]+)	body	CodeIgniter	HIGH	codeigniter	codeigniter
+CodeIgniter/([\d.]+)	header	CodeIgniter	HIGH	codeigniter	codeigniter
+CakePHP\s+([\d.]+)	body	CakePHP	HIGH	cakephp	cakephp
+CakePHP/([\d.]+)	header	CakePHP	HIGH	cakephp	cakephp
+Yii\s+Framework/([\d.]+)	body	Yii	HIGH	yiisoft	yii
+Yii/([\d.]+)	header	Yii	HIGH	yiisoft	yii
+symfony/([\d.]+)	body	Symfony	HIGH	sensiolabs	symfony
+Symfony/([\d.]+)	header	Symfony	HIGH	sensiolabs	symfony
+["\']symfony/symfony["\']\s*:\s*["\']\^?([\d.]+)	body	Symfony	HIGH	sensiolabs	symfony
+Zend\s+Framework\s+([\d.]+)	body	Zend Framework	HIGH	zend	framework
+Zend/([\d.]+)	header	Zend Framework	HIGH	zend	framework
+# PYTHON FRAMEWORKS
+Django/([\d.]+)	body	Django	HIGH	djangoproject	django
+Django/([\d.]+)	header	Django	HIGH	djangoproject	django
+["\']Django["\']\s*:\s*["\']([\d.]+)	body	Django	HIGH	djangoproject	django
+Flask/([\d.]+)	body	Flask	HIGH	palletsprojects	flask
+Flask/([\d.]+)	header	Flask	HIGH	palletsprojects	flask
+["\']Flask["\']\s*:\s*["\']([\d.]+)	body	Flask	HIGH	palletsprojects	flask
+# JAVA FRAMEWORKS
+spring-boot/([\d.]+)	body	Spring Boot	HIGH	vmware	spring_boot
+Spring Boot/([\d.]+)	header	Spring Boot	HIGH	vmware	spring_boot
+["\']spring-boot["\']\s*:\s*["\']([\d.]+)	body	Spring Boot	HIGH	vmware	spring_boot
+JBoss/([\d.]+)	body	JBoss	HIGH	redhat	jboss
+JBoss/([\d.]+)	header	JBoss	HIGH	redhat	jboss
+WebLogic\s+Server\s+([\d.]+)	body	WebLogic	HIGH	oracle	weblogic_server
+WebLogic/([\d.]+)	header	WebLogic	HIGH	oracle	weblogic_server
+Struts/([\d.]+)	body	Apache Struts	HIGH	apache	struts
+Hibernate/([\d.]+)	body	Hibernate	MEDIUM	hibernate	hibernate
+# NODE.JS PACKAGES
+["\']express["\']\s*:\s*["\']\^?([\d.]+)	body	Express	MEDIUM	expressjs	express
+express@([\d.]+)	body	Express	HIGH	expressjs	express
+["\']next["\']\s*:\s*["\']\^?([\d.]+)	body	Next.js	MEDIUM	vercel	next.js
+Next\.js/([\d.]+)	header	Next.js	HIGH	vercel	next.js
+["\']nuxt["\']\s*:\s*["\']\^?([\d.]+)	body	Nuxt.js	MEDIUM	nuxt	nuxt
+Nuxt/([\d.]+)	header	Nuxt.js	HIGH	nuxt	nuxt
+["\']gatsby["\']\s*:\s*["\']\^?([\d.]+)	body	Gatsby	MEDIUM	gatsbyjs	gatsby
+["\']nest["\']\s*:\s*["\']\^?([\d.]+)	body	NestJS	MEDIUM	nestjs	nest
+# DATABASES
+MySQL/([\d.]+)	body	MySQL	HIGH	oracle	mysql
+MySQL/([\d.]+)	header	MySQL	HIGH	oracle	mysql
+PostgreSQL\s+([\d.]+)	body	PostgreSQL	HIGH	postgresql	postgresql
+PostgreSQL/([\d.]+)	header	PostgreSQL	HIGH	postgresql	postgresql
+MongoDB\s+([\d.]+)	body	MongoDB	HIGH	mongodb	mongodb
+MongoDB/([\d.]+)	header	MongoDB	HIGH	mongodb	mongodb
+Redis/([\d.]+)	body	Redis	HIGH	redis	redis
+Redis/([\d.]+)	header	Redis	HIGH	redis	redis
+MariaDB/([\d.]+)	body	MariaDB	HIGH	mariadb	mariadb
+MariaDB/([\d.]+)	header	MariaDB	HIGH	mariadb	mariadb
+Elasticsearch/([\d.]+)	body	Elasticsearch	HIGH	elastic	elasticsearch
+Elasticsearch/([\d.]+)	header	Elasticsearch	HIGH	elastic	elasticsearch
+# MESSAGE QUEUES
+RabbitMQ/([\d.]+)	body	RabbitMQ	HIGH	rabbitmq	rabbitmq
+RabbitMQ/([\d.]+)	header	RabbitMQ	HIGH	rabbitmq	rabbitmq
+Kafka/([\d.]+)	body	Apache Kafka	HIGH	apache	kafka
+Kafka/([\d.]+)	header	Apache Kafka	HIGH	apache	kafka
+# COMMENTS
+<!--.*?WordPress\s+([\d.]+)	body	WordPress	MEDIUM	wordpress	wordpress
+<!--.*?jQuery\s+v?([\d.]+)	body	jQuery	MEDIUM	jquery	jquery
+<!--.*?Bootstrap\s+([\d.]+)	body	Bootstrap	MEDIUM	getbootstrap	bootstrap
+<!--.*?Apache/([\d.]+)	body	Apache	MEDIUM	apache	http_server
+<!--.*?nginx/([\d.]+)	body	nginx	MEDIUM	f5	nginx
+/\*.*?jQuery\s+v?([\d.]+)	body	jQuery	MEDIUM	jquery	jquery
+/\*.*?Bootstrap\s+([\d.]+)	body	Bootstrap	MEDIUM	getbootstrap	bootstrap
+# RUBY FRAMEWORKS
+Rails\s+([\d.]+)	body	Ruby on Rails	HIGH	rubyonrails	rails
+Rails/([\d.]+)	header	Ruby on Rails	HIGH	rubyonrails	rails
+["\']rails["\']\s*:\s*["\']([\d.]+)	body	Ruby on Rails	HIGH	rubyonrails	rails
+Sinatra/([\d.]+)	body	Sinatra	HIGH	sinatrarb	sinatra
+Sinatra/([\d.]+)	header	Sinatra	HIGH	sinatrarb	sinatra
+# .NET FRAMEWORKS
+ASP\.NET\s+Core\s+([\d.]+)	body	ASP.NET Core	HIGH	microsoft	asp.net_core
+ASP\.NET Core/([\d.]+)	header	ASP.NET Core	HIGH	microsoft	asp.net_core
+\.NET\s+Framework\s+([\d.]+)	body	.NET Framework	HIGH	microsoft	.net_framework
+Blazor/([\d.]+)	body	Blazor	MEDIUM	microsoft	blazor
+Blazor/([\d.]+)	header	Blazor	MEDIUM	microsoft	blazor
+# GO FRAMEWORKS
+Gin/([\d.]+)	body	Gin	MEDIUM	gin-gonic	gin
+Gin/([\d.]+)	header	Gin	MEDIUM	gin-gonic	gin
+Echo/([\d.]+)	body	Echo	MEDIUM	labstack	echo
+Echo/([\d.]+)	header	Echo	MEDIUM	labstack	echo
+# ERROR MESSAGES
+Apache/([\d.]+)\s+Server\s+at	body	Apache	MEDIUM	apache	http_server
+nginx/([\d.]+)\s+error	body	nginx	MEDIUM	f5	nginx
+PHP\s+([\d.]+)\s+-\s+Copyright	body	PHP	MEDIUM	php	php
+Python/([\d.]+)\s+Traceback	body	Python	MEDIUM	python	python
+# CDN URLS
+cdn\.jsdelivr\.net/npm/jquery@([\d.]+)	body	jQuery	MEDIUM	jquery	jquery
+cdn\.jsdelivr\.net/npm/bootstrap@([\d.]+)	body	Bootstrap	MEDIUM	getbootstrap	bootstrap
+cdn\.jsdelivr\.net/npm/vue@([\d.]+)	body	Vue.js	MEDIUM	vuejs	vue
+unpkg\.com/react@([\d.]+)	body	React	MEDIUM	facebook	react
+cdnjs\.cloudflare\.com/ajax/libs/jquery/([\d.]+)	body	jQuery	MEDIUM	jquery	jquery
+cdnjs\.cloudflare\.com/ajax/libs/angular\.js/([\d.]+)	body	Angular	MEDIUM	angular	angular
+# ADDITIONAL COMPOUND HEADER DETECTIONS
+# Perl and Python modules commonly found with Apache
+mod_perl/([\d.]+)	header	mod_perl	MEDIUM	perl	mod_perl
+mod_python/([\d.]+)	header	mod_python	MEDIUM	python	mod_python
+mod_wsgi/([\d.]+)	header	mod_wsgi	MEDIUM	python	mod_wsgi
+mod_dav/([\d.]+)	header	mod_dav	MEDIUM	apache	mod_dav
+mod_fcgid/([\d.]+)	header	mod_fcgid	MEDIUM	apache	mod_fcgid
+mod_jk/([\d.]+)	header	mod_jk	MEDIUM	apache	mod_jk
+mod_cluster/([\d.]+)	header	mod_cluster	MEDIUM	apache	mod_cluster
+mod_pagespeed/([\d.]+)	header	mod_pagespeed	MEDIUM	google	mod_pagespeed
+mod_security/([\d.]+)	header	ModSecurity	MEDIUM	modsecurity	mod_security
+mod_rewrite/([\d.]+)	header	mod_rewrite	MEDIUM	apache	mod_rewrite
+mod_auth_openidc/([\d.]+)	header	mod_auth_openidc	MEDIUM	openidc	mod_auth_openidc
+mod_bwlimited/([\d.]+)	header	mod_bwlimited	MEDIUM	apache	mod_bwlimited
+mod_qos/([\d.]+)	header	mod_qos	MEDIUM	apache	mod_qos
+mod_evasive/([\d.]+)	header	mod_evasive	MEDIUM	apache	mod_evasive
+# Additional SSL/TLS variants
+OpenSSL/([\d.]+[a-z]?)-fips	header	OpenSSL FIPS	MEDIUM	openssl	openssl
+OpenSSL-FIPS/([\d.]+)	header	OpenSSL FIPS	MEDIUM	openssl	openssl
+LibreSSL/([\d.]+)	header	LibreSSL	MEDIUM	libressl	libressl
+BoringSSL/([\d.]+)	header	BoringSSL	MEDIUM	google	boringssl
+GnuTLS/([\d.]+)	header	GnuTLS	MEDIUM	gnutls	gnutls
+NSS/([\d.]+)	header	NSS	MEDIUM	mozilla	nss
+SecureTransport/([\d.]+)	header	SecureTransport	MEDIUM	apple	securetransport
+Schannel/([\d.]+)	header	Schannel	MEDIUM	microsoft	schannel
+# Web server variants
+IBM_HTTP_Server/([\d.]+)	header	IBM HTTP Server	HIGH	ibm	ibm_http_server
+Sun-ONE-Web-Server/([\d.]+)	header	Sun ONE Web Server	HIGH	sun	sun_one_web_server
+Oracle-HTTP-Server/([\d.]+)	header	Oracle HTTP Server	HIGH	oracle	oracle_http_server
+Zeus/([\d.]+)	header	Zeus	HIGH	zeus	zeus
+Cherokee/([\d.]+)	header	Cherokee	HIGH	cherokee	cherokee
+Hiawatha/([\d.]+)	header	Hiawatha	HIGH	hiawatha	hiawatha
+Monkey/([\d.]+)	header	Monkey HTTP	HIGH	monkey-project	monkey
+lighttpd/([\d.]+)	header	lighttpd	HIGH	lighttpd	lighttpd
+thttpd/([\d.]+)	header	thttpd	HIGH	acme	thttpd
+mini_httpd/([\d.]+)	header	mini_httpd	HIGH	acme	mini_httpd
+Boa/([\d.]+)	header	Boa	HIGH	boa	boa
+Mathopd/([\d.]+)	header	Mathopd	HIGH	mathopd	mathopd
+Roxen/([\d.]+)	header	Roxen	HIGH	roxen	roxen
+AOLserver/([\d.]+)	header	AOLserver	HIGH	aol	aolserver
+Thttpd/([\d.]+)	header	Thttpd	HIGH	acme	thttpd
+AllegroServe/([\d.]+)	header	AllegroServe	HIGH	allegro	allegroserve
+Caudium/([\d.]+)	header	Caudium	HIGH	caudium	caudium
+Xitami/([\d.]+)	header	Xitami	HIGH	xitami	xitami
+Abyss/([\d.]+)	header	Abyss	HIGH	aprelium	abyss
+TornadoServer/([\d.]+)	header	Tornado	HIGH	python	tornado
+Waitress/([\d.]+)	header	Waitress	HIGH	python	waitress
+Gunicorn/([\d.]+)	header	Gunicorn	HIGH	gunicorn	gunicorn
+uWSGI/([\d.]+)	header	uWSGI	HIGH	unbit	uwsgi
+Bjoern/([\d.]+)	header	Bjoern	HIGH	bjoern	bjoern
+FAPWS/([\d.]+)	header	FAPWS	HIGH	fapws	fapws
+Meinheld/([\d.]+)	header	Meinheld	HIGH	meinheld	meinheld
+mod_fastcgi/([\d.]+)	header	mod_fastcgi	MEDIUM	apache	mod_fastcgi
+mod_scgi/([\d.]+)	header	mod_scgi	MEDIUM	apache	mod_scgi
+mod_uwsgi/([\d.]+)	header	mod_uwsgi	MEDIUM	apache	mod_uwsgi
+mod_ruid2/([\d.]+)	header	mod_ruid2	MEDIUM	apache	mod_ruid2
+mod_itk/([\d.]+)	header	mod_itk	MEDIUM	apache	mod_itk
+mod_suexec/([\d.]+)	header	mod_suexec	MEDIUM	apache	mod_suexec
+mod_suphp/([\d.]+)	header	mod_suphp	MEDIUM	apache	mod_suphp
+mod_php/([\d.]+)	header	mod_php	MEDIUM	php	mod_php
+mod_h264_streaming/([\d.]+)	header	mod_h264_streaming	MEDIUM	apache	mod_h264_streaming
+mod_ldap/([\d.]+)	header	mod_ldap	MEDIUM	apache	mod_ldap
+mod_authnz_ldap/([\d.]+)	header	mod_authnz_ldap	MEDIUM	apache	mod_authnz_ldap
+mod_auth_kerb/([\d.]+)	header	mod_auth_kerb	MEDIUM	apache	mod_auth_kerb
+mod_speling/([\d.]+)	header	mod_speling	MEDIUM	apache	mod_speling
+mod_negotiation/([\d.]+)	header	mod_negotiation	MEDIUM	apache	mod_negotiation
+mod_vhost_alias/([\d.]+)	header	mod_vhost_alias	MEDIUM	apache	mod_vhost_alias
+mod_userdir/([\d.]+)	header	mod_userdir	MEDIUM	apache	mod_userdir
+mod_setenvif/([\d.]+)	header	mod_setenvif	MEDIUM	apache	mod_setenvif
+mod_mime/([\d.]+)	header	mod_mime	MEDIUM	apache	mod_mime
+mod_alias/([\d.]+)	header	mod_alias	MEDIUM	apache	mod_alias
+mod_autoindex/([\d.]+)	header	mod_autoindex	MEDIUM	apache	mod_autoindex
+mod_dir/([\d.]+)	header	mod_dir	MEDIUM	apache	mod_dir
+mod_env/([\d.]+)	header	mod_env	MEDIUM	apache	mod_env
+mod_expires/([\d.]+)	header	mod_expires	MEDIUM	apache	mod_expires
+mod_headers/([\d.]+)	header	mod_headers	MEDIUM	apache	mod_headers
+mod_include/([\d.]+)	header	mod_include	MEDIUM	apache	mod_include
+mod_info/([\d.]+)	header	mod_info	MEDIUM	apache	mod_info
+mod_log_config/([\d.]+)	header	mod_log_config	MEDIUM	apache	mod_log_config
+mod_mime_magic/([\d.]+)	header	mod_mime_magic	MEDIUM	apache	mod_mime_magic
+mod_reqtimeout/([\d.]+)	header	mod_reqtimeout	MEDIUM	apache	mod_reqtimeout
+mod_status/([\d.]+)	header	mod_status	MEDIUM	apache	mod_status
+mod_unique_id/([\d.]+)	header	mod_unique_id	MEDIUM	apache	mod_unique_id
+mod_version/([\d.]+)	header	mod_version	MEDIUM	apache	mod_version

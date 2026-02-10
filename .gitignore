@@ -1,0 +1,31 @@
+# Gradle build and output folders
+/build/
+/.gradle/
+/out/
+
+# ZAP build output
+zap-extensions/build/
+
+# IDE settings (IntelliJ IDEA)
+/.idea/
+/*.iml
+out/
+
+# Visual Studio Code settings
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*.Identifier
+*.Zone.Identifier
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Avoid committing compiled class files
+*.class
+
+# Maven folders (if used)
+target/

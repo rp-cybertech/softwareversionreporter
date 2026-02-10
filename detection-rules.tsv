@@ -1,0 +1,168 @@
+regex	type	software	vendor	product
+# --- Header rules ---				
+^Apache/([\d.]+)	header	Apache	apache	http_server
+Apache/([\d.]+)	header	Apache	apache	http_server
+^nginx/([\d.]+)	header	nginx	f5	nginx
+Server: *nginx/([\d.]+)	header	nginx	f5	nginx
+^Microsoft-IIS/([\d.]+)	header	IIS	microsoft	iis
+IIS/([\d.]+)	header	IIS	microsoft	iis
+^lighttpd/([\d.]+)	header	lighttpd	lighttpd	lighttpd
+lighttpd/([\d.]+)	header	lighttpd	lighttpd	lighttpd
+^LiteSpeed/([\d.]+)	header	LiteSpeed	litespeedtech	litespeed_web_server
+LiteSpeed/([\d.]+)	header	LiteSpeed	litespeedtech	litespeed_web_server
+gunicorn/([\d.]+)	header	Gunicorn	gunicorn	gunicorn
+Gunicorn/([\d.]+)	header	Gunicorn	gunicorn	gunicorn
+^Werkzeug/([\d.]+)	header	Werkzeug	palletsprojects	werkzeug
+Werkzeug/([\d.]+)	header	Werkzeug	palletsprojects	werkzeug
+^Jetty\((\d+\.\d+[\.\d]*)	header	Jetty	eclipse	jetty
+Jetty/([\d.]+)	header	Jetty	eclipse	jetty
+^Apache-Coyote/([\d.]+)	header	Tomcat	apache	tomcat
+Apache-Coyote/([\d.]+)	header	Tomcat	apache	tomcat
+Tomcat/([\d.]+)	header	Tomcat	apache	tomcat
+^PHP/([\d.]+)	header	PHP	php	php
+PHP/([\d.]+)	header	PHP	php	php
+X-Powered-By.*ASP\.NET	header	ASP.NET	microsoft	asp.net
+ASP\.NET/([\d.]+)	header	ASP.NET	microsoft	asp.net
+X-AspNet-Version:\s*([\d.]+)	header	ASP.NET	microsoft	asp.net
+^Express/([\d.]+)	header	Express	expressjs	express
+Express/([\d.]+)	header	Express	expressjs	express
+Node\.js/([\d.]+)	header	Node.js	nodejs	node.js
+^OpenSSL/([\d.]+[a-z]?)	header	OpenSSL	openssl	openssl
+OpenSSL/([\d.]+)	header	OpenSSL	openssl	openssl
+^mod_ssl/([\d.]+)	header	mod_ssl	modssl	mod_ssl
+mod_ssl/([\d.]+)	header	mod_ssl	modssl	mod_ssl
+<meta\s+name=["']generator["']\s+content=["']WordPress\s+([\d.]+)	header	WordPress	wordpress	wordpress
+WordPress/([\d.]+)	header	WordPress	wordpress	wordpress
+<meta\s+name=["']generator["']\s+content=["']Joomla!\s+([\d.]+)	header	Joomla	joomla	joomla
+Joomla/([\d.]+)	header	Joomla	joomla	joomla
+<meta\s+name=["']generator["']\s+content=["']Drupal\s+([\d.]+)	header	Drupal	drupal	drupal
+Drupal/([\d.]+)	header	Drupal	drupal	drupal
+<meta\s+name=["']generator["']\s+content=["']Magento.*?([\d.]+)	header	Magento	magento	magento
+Magento/([\d.]+)	header	Magento	magento	magento
+<meta\s+name=["']generator["']\s+content=["']PrestaShop\s+([\d.]+)	header	PrestaShop	prestashop	prestashop
+PrestaShop/([\d.]+)	header	PrestaShop	prestashop	prestashop
+Aged-Platform: *ColdFusion/([\d.]+)	header	ColdFusion	adobe	coldfusion
+Deprecated-Lib: *OpenSSL/([\d.]+)	header	OpenSSL	openssl	openssl
+EndOfLife-Package: *Joomla/([\d.]+)	header	Joomla	joomla	joomla
+Legacy-App: *Rails/([\d.]+)	header	Ruby on Rails	rubyonrails	rails
+Old-Framework: *Django/([\d.]+)	header	Django	djangoproject	django
+Outdated-Engine: *NodeJS/([\d.]+)	header	Node.js	nodejs	node.js
+Unpatched-Module: *Drupal/([\d.]+)	header	Drupal	drupal	drupal
+Vintage-System: *IIS/([\d.]+)	header	IIS	microsoft	iis
+Vulnerable: *Tomcat/([\d.]+)	header	Tomcat	apache	tomcat
+Framework: *Laravel/([\d.]+)	header	Laravel	laravel	laravel
+Database: *MySQL/([\d.]+)	header	MySQL	oracle	mysql
+#--- Body rules ---				
+Apache/([\d.]+)	body	Apache	apache	http_server
+nginx/([\d.]+)	body	nginx	f5	nginx
+IIS/([\d.]+)	body	IIS	microsoft	iis
+lighttpd/([\d.]+)	body	lighttpd	lighttpd	lighttpd
+LiteSpeed/([\d.]+)	body	LiteSpeed	litespeedtech	litespeed_web_server
+Gunicorn/([\d.]+)	body	Gunicorn	gunicorn	gunicorn
+Werkzeug/([\d.]+)	body	Werkzeug	palletsprojects	werkzeug
+Jetty/([\d.]+)	body	Jetty	eclipse	jetty
+Apache-Coyote/([\d.]+)	body	Tomcat	apache	tomcat
+Tomcat/([\d.]+)	body	Tomcat	apache	tomcat
+PHP/([\d.]+)	body	PHP	php	php
+Python/([\d.]+)	body	Python	python	python
+ASP\.NET/([\d.]+)	body	ASP.NET	microsoft	asp.net
+Express/([\d.]+)	body	Express	expressjs	express
+Node\.js/([\d.]+)	body	Node.js	nodejs	node.js
+OpenSSL/([\d.]+)	body	OpenSSL	openssl	openssl
+mod_ssl/([\d.]+)	body	mod_ssl	modssl	mod_ssl
+WordPress/([\d.]+)	body	WordPress	wordpress	wordpress
+Joomla/([\d.]+)	body	Joomla	joomla	joomla
+Drupal/([\d.]+)	body	Drupal	drupal	drupal
+Magento/([\d.]+)	body	Magento	magento	magento
+PrestaShop/([\d.]+)	body	PrestaShop	prestashop	prestashop
+WooCommerce\s+([\d.]+)	body	WooCommerce	automattic	woocommerce
+react@([\d.]+)	body	React	facebook	react
+Vue/([\d.]+)	body	Vue.js	vuejs	vue
+Angular/([\d.]+)	body	Angular	angular	angular
+jQuery\s+v([\d.]+)	body	jQuery	jquery	jquery
+Bootstrap/([\d.]+)	body	Bootstrap	getbootstrap	bootstrap
+Lodash@([\d.]+)	body	Lodash	lodash	lodash
+Axios/([\d.]+)	body	Axios	axios	axios
+webpack/([\d.]+)	body	webpack	webpack	webpack
+Laravel\s+v([\d.]+)	body	Laravel	laravel	laravel
+CodeIgniter/([\d.]+)	body	CodeIgniter	codeigniter	codeigniter
+CakePHP/([\d.]+)	body	CakePHP	cakephp	cakephp
+Yii\s+Framework/([\d.]+)	body	Yii	yiisoft	yii
+Symfony/([\d.]+)	body	Symfony	sensiolabs	symfony
+Zend/([\d.]+)	body	Zend Framework	zend	framework
+Django/([\d.]+)	body	Django	djangoproject	django
+Flask/([\d.]+)	body	Flask	palletsprojects	flask
+spring-boot/([\d.]+)	body	Spring Boot	vmware	spring_boot
+JBoss/([\d.]+)	body	JBoss	redhat	jboss
+WebLogic/([\d.]+)	body	WebLogic	oracle	weblogic_server
+Struts/([\d.]+)	body	Apache Struts	apache	struts
+Hibernate/([\d.]+)	body	Hibernate	hibernate	hibernate
+Express@([\d.]+)	body	Express	expressjs	express
+Next\.js/([\d.]+)	body	Next.js	vercel	next.js
+Nuxt/([\d.]+)	body	Nuxt.js	nuxt	nuxt
+Gatsby/([\d.]+)	body	Gatsby	gatsbyjs	gatsby
+NestJS/([\d.]+)	body	NestJS	nestjs	nest
+MySQL/([\d.]+)	body	MySQL	oracle	mysql
+PostgreSQL\s+([\d.]+)	body	PostgreSQL	postgresql	postgresql
+MongoDB/([\d.]+)	body	MongoDB	mongodb	mongodb
+Redis/([\d.]+)	body	Redis	redis	redis
+MariaDB/([\d.]+)	body	MariaDB	mariadb	mariadb
+Elasticsearch/([\d.]+)	body	Elasticsearch	elastic	elasticsearch
+RabbitMQ/([\d.]+)	body	RabbitMQ	rabbitmq	rabbitmq
+Kafka/([\d.]+)	body	Apache Kafka	apache	kafka
+Rails\s+([\d.]+)	body	Ruby on Rails	rubyonrails	rails
+Sinatra/([\d.]+)	body	Sinatra	sinatrarb	sinatra
+ASP\.NET\s+Core\s+([\d.]+)	body	ASP.NET Core	microsoft	asp.net_core
+.NET\s+Framework\s+([\d.]+)	body	.NET Framework	microsoft	.net_framework
+Blazor/([\d.]+)	body	Blazor	microsoft	blazor
+Gin/([\d.]+)	body	Gin	gin-gonic	gin
+Echo/([\d.]+)	body	Echo	labstack	echo
+Apache\s+Server\s+at	body	Apache	apache	http_server
+nginx\s+error	body	nginx	f5	nginx
+PHP\s+([\d.]+)\s+-	body	PHP	php	php
+Python\s+Traceback	body	Python	python	python
+jQuery\s+v([\d.]+)	body	jQuery	jquery	jquery
+Laravel/([\d.]+)	body	Laravel	laravel	laravel
+# --- JS libraries in script URLs (CDNs & local) ---				
+cdnjs\.cloudflare\.com/ajax/libs/jquery/([0-9\.]+)/jquery\.min\.js	Body	jQuery	jquery	jquery
+cdn\.jsdelivr\.net/npm/jquery@([0-9\.]+)	Body	jQuery	jquery	jquery
+ajax\.googleapis\.com/ajax/libs/jquery/([0-9\.]+)/jquery\.min\.js	Body	jQuery	jquery	jquery
+/jquery-([0-9\.]+)\.min\.js	Body	jQuery	jquery	jquery
+cdnjs\.cloudflare\.com/ajax/libs/angular\.js/([0-9\.]+)/angular\.min\.js	Body	AngularJS	google	angularjs
+/angular-([0-9\.]+)\.min\.js	Body	AngularJS	google	angularjs
+unpkg\.com/react@([0-9\.]+)/umd/react\.production\.min\.js	Body	React	facebook	react
+/React-([0-9\.]+)\.min\.js	Body	React	facebook	react
+cdn\.jsdelivr\.net/npm/vue@([0-9\.]+)/dist/vue\.min\.js	Body	Vue.js	vuejs	vue
+/vue(?:\.runtime)?-([0-9\.]+)\.min\.js	Body	Vue.js	vuejs	vue
+cdnjs\.cloudflare\.com/ajax/libs/twitter-bootstrap/([0-9\.]+)/js/bootstrap\.min\.js	Body	Bootstrap	getbootstrap	bootstrap
+/bootstrap\.min\.js\?ver=([0-9\.]+)	Body	Bootstrap	getbootstrap	bootstrap
+cdn\.jsdelivr\.net/npm/lodash@([0-9\.]+)/lodash\.min\.js	Body	Lodash	lodash	lodash
+/lodash(?:\.core)?-([0-9\.]+)\.min\.js	Body	Lodash	lodash	lodash
+cdn\.jsdelivr\.net/npm/moment@([0-9\.]+)/moment\.min\.js	Body	MomentJS	momentjs	moment
+/moment-([0-9\.]+)\.min\.js	Body	MomentJS	momentjs	moment
+cdnjs\.cloudflare\.com/ajax/libs/underscore\.js/([0-9\.]+)/underscore-min\.js	Body	UnderscoreJS	jashkenas	underscore
+/underscore-([0-9\.]+)\.min\.js	Body	UnderscoreJS	jashkenas	underscore
+cdn\.jsdelivr\.net/npm/axios@([0-9\.]+)/dist/axios\.min\.js	Body	Axios	axios	axios
+/axios\.min\.js\?ver=([0-9\.]+)	Body	Axios	axios	axios
+# --- JS frameworks via package-style hints in HTML / JS ---				
+["']react["']\s*:\s*["']\^?([0-9\.]+)	Body	React	facebook	react
+["']vue["']\s*:\s*["']\^?([0-9\.]+)	Body	Vue.js	vuejs	vue
+["']angular["']\s*:\s*["']\^?([0-9\.]+)	Body	Angular	google	angular
+["']jquery["']\s*:\s*["']\^?([0-9\.]+)	Body	jQuery	jquery	jquery
+["']bootstrap["']\s*:\s*["']\^?([0-9\.]+)	Body	Bootstrap	getbootstrap	bootstrap
+["']lodash["']\s*:\s*["']\^?([0-9\.]+)	Body	Lodash	lodash	lodash
+["']moment["']\s*:\s*["']\^?([0-9\.]+)	Body	MomentJS	momentjs	moment
+# --- Node.js frameworks (backend JS) ---				
+["']express["']\s*:\s*["']\^?([0-9\.]+)	Body	Express	expressjs	express
+express@([0-9\.]+)	Body	Express	expressjs	express
+["']next["']\s*:\s*["']\^?([0-9\.]+)	Body	Next.js	vercel	next.js
+["']nuxt["']\s*:\s*["']\^?([0-9\.]+)	Body	Nuxt.js	nuxt	nuxt
+["']gatsby["']\s*:\s*["']\^?([0-9\.]+)	Body	Gatsby	gatsbyjs	gatsby
+["']nest["']\s*:\s*["']\^?([0-9\.]+)	Body	NestJS	nestjs	nest
+# --- Extra backend frameworks (Java / PHP / Python / Ruby) ---				
+Rails\s+v?([0-9\.]+)	Body	Ruby on Rails	rubyonrails	rails
+Django\s+([0-9\.]+)	Body	Django	djangoproject	django
+Spring Boot\s+([0-9\.]+)	Body	Spring Boot	vmware	spring_boot
+Symfony\s+([0-9\.]+)	Body	Symfony	sensiolabs	symfony
+CodeIgniter\s+([0-9\.]+)	Body	CodeIgniter	codeigniter	codeigniter
+CakePHP\s+([0-9\.]+)	Body	CakePHP	cakephp	cakephp

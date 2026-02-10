@@ -1,0 +1,444 @@
+regex	type	software	vendor	product
+Server: *nginx/([0-9\.]+)	Header	nginx	Nginx	nginx
+nginx/([0-9\.]+)	Body	nginx	Nginx	nginx
+Server: *Apache/([0-9\.]+)	Header	Apache	Apache	httpd
+Apache/([0-9\.]+)	Body	Apache	Apache	httpd
+Server: *LiteSpeed/?([0-9\.]+)?	Header	LiteSpeed	LiteSpeedTech	LiteSpeed
+Server: *Caddy/?([0-9\.]+)?	Header	Caddy	Caddy	Caddy
+Server: *openresty/([0-9\.]+)	Header	OpenResty	OpenResty	OpenResty
+Server: *GWS	Header	Google Web Server	Google	GWS
+Server: *GSE	Header	Google AppEngine	Google	GSE
+Server: *cloudflare	Header	Cloudflare	Cloudflare	Cloudflare
+Set-Cookie: *__cfduid=	Header	Cloudflare	Cloudflare	Cloudflare
+Server: *lighttpd/?([0-9\.]+)?	Header	lighttpd	lighttpd	lighttpd
+Server: *gunicorn/([0-9\.]+)	Header	Gunicorn	Gunicorn	Gunicorn
+Server: *Jetty/?([0-9\.]+)	Header	Jetty	EclipseFoundation	Jetty
+Jetty\(.*([0-9]{2,}\.[0-9]+)	Header	Jetty	EclipseFoundation	Jetty
+Server: *Microsoft-IIS/([0-9\.]+)	Header	IIS	Microsoft	IIS
+X-Powered-By: *ASP\.NET	Header	ASP.NET	Microsoft	ASP.NET
+X-AspNet-Version: ([0-9\.]+)	Header	ASP.NET	Microsoft	ASP.NET
+X-AspNetMvc-Version: ([0-9\.]+)	Header	ASP.NET MVC	Microsoft	ASP.NET-MVC
+Server: *Tomcat/([0-9\.]+)	Header	Tomcat	Apache	Tomcat
+Server: *Apache-Coyote/([0-9\.]+)	Header	Tomcat Coyote	Apache	Tomcat
+Server: *GlassFish Server Open Source Edition ([0-9\.]+)	Header	GlassFish	Oracle	GlassFish
+Server: *JBoss-([0-9\.]+)	Header	JBoss	RedHat	JBoss
+X-Powered-By: *Servlet/([0-9\.]+)	Header	Servlet	Oracle	Servlet
+Server: *Resin/([0-9\.]+)	Header	Resin	Caucho	Resin
+Server: *WildFly/([0-9\.]+)	Header	WildFly	RedHat	WildFly
+Server: *WebSphere Application Server/([0-9\.]+)	Header	WebSphere	IBM	WebSphere
+Server: *Oracle-Application-Server-([0-9\.]+)	Header	Oracle App Server	Oracle	OracleAppServer
+Server: *nginx	Header	nginx	Nginx	nginx
+Server: *Apache	Header	Apache	Apache	httpd
+Server: *Tengine/([0-9\.]+)	Header	Tengine	Tengine	Tengine
+Server: *ATS/([0-9\.]+)	Header	Traffic Server	Apache	ATS
+Server: *Varnish	Header	Varnish	Varnish	Varnish
+Via: .*varnish	Header	Varnish	Varnish	Varnish
+Server: *Squid/([0-9\.]+)	Header	Squid	Squid	Squid
+Via: *[0-9\.]+ .*squid	Header	Squid	Squid	Squid
+Server: *HAProxy/([0-9\.]+)	Header	HAProxy	HAProxy	HAProxy
+Server: *Envoy/([0-9\.]+)	Header	Envoy	Envoy	Envoy
+Server: *Traefik/([0-9\.]+)	Header	Traefik	Traefik	Traefik
+Server: *Caddy	Header	Caddy	Caddy	Caddy
+Server: *Node\.js	Header	Node.js	NodeJS	Node
+Server: *Gunicorn	Header	Gunicorn	Gunicorn	Gunicorn
+X-Powered-By: *PHP/([0-9\.]+)	Header	PHP	PHP	PHP
+Set-Cookie: *PHPSESSID=	Header	PHP	PHP	PHP
+<\?php	Body	PHP	PHP	PHP
+X-Powered-By: *HHVM	Header	HHVM	Meta	HHVM
+Server: *WAF/([0-9\.]+)	Header	Generic WAF	Unknown	WAF
+ModSecurity: *Enabled	Body	ModSecurity	Trustwave	ModSecurity
+X-Mod-Security: *Enabled	Header	ModSecurity	Trustwave	ModSecurity
+X-Powered-By: *ASP	Header	ASP	Microsoft	ASP
+Set-Cookie: *JSESSIONID=	Header	Java	Oracle	Java
+Set-Cookie: *CFID=	Header	ColdFusion	Adobe	ColdFusion
+Set-Cookie: *CFTOKEN=	Header	ColdFusion	Adobe	ColdFusion
+X-Powered-By: *ColdFusion	Header	ColdFusion	Adobe	ColdFusion
+X-Powered-By: *Express	Header	Express	OpenJS	Express
+Server: *Express	Header	Express	OpenJS	Express
+X-Powered-By: *Koa	Header	Koa	Koa	Koa
+X-Powered-By: *Laravel	Header	Laravel	Laravel	Laravel
+meta name="generator" content="Laravel"	Body	Laravel	Laravel	Laravel
+X-Powered-By: *Symfony	Header	Symfony	Symfony	Symfony
+X-Symfony-Cache: *	Header	Symfony	Symfony	Symfony
+X-Powered-By: *Django	Header	Django	Django	Django
+csrftoken=.*;	Header	Django	Django	Django
+Set-Cookie: *_rails_session=	Header	Rails	Ruby	Rails
+X-Runtime: *	Header	Rails	Ruby	Rails
+Server: *WEBrick/([0-9\.]+)	Header	WEBrick	Ruby	Ruby
+X-Powered-By: *Ruby	Header	Ruby	Ruby	Ruby
+X-Powered-By: *Grails	Header	Grails	Grails	Grails
+Set-Cookie: *grails_remember_me	Header	Grails	Grails	Grails
+Server: *gunicorn	Header	Gunicorn	Gunicorn	Gunicorn
+Server: *uwsgi	Header	uWSGI	uWSGI	uWSGI
+X-Powered-By: *Flask	Header	Flask	Pallets	Flask
+Set-Cookie: *csrftoken=	Header	Django	Django	Django
+X-Powered-By: *Next\.js	Header	Next.js	Vercel	NextJS
+Server: *Netlify	Header	Netlify	Netlify	Netlify
+Server: *GitHub\.com	Header	GitHub Pages	GitHub	GitHub-Pages
+Server: *cloudflare	Header	Cloudflare	Cloudflare	Cloudflare
+CF-RAY: .*	Header	Cloudflare	Cloudflare	Cloudflare
+Server: *AkamaiGHost	Header	Akamai	Akamai	AkamaiGHost
+Server: *Sucuri/([0-9\.]+)	Header	Sucuri	Sucuri	Sucuri
+Server: *BarracudaWS	Header	Barracuda WAF	Barracuda	BarracudaWAF
+Server: *F5 BIG-IP	Header	F5 BIG-IP	F5	F5-BIGIP
+Set-Cookie: *BIGipServer	Header	F5 BIG-IP	F5	F5-BIGIP
+Server: *Cisco-IOS	Header	Cisco IOS	Cisco	Cisco-IOS
+Server: *lighttpd	Header	lighttpd	lighttpd	lighttpd
+Server: *nginx/([0-9\.]+)	Header	nginx	Nginx	nginx
+Server: *Apache/([0-9\.]+) \(Unix\) OpenSSL	Header	Apache+OpenSSL	Apache	Apache-OpenSSL
+X-Powered-By: *ASP\.NET	Header	ASP.NET	Microsoft	ASP.NET
+Set-Cookie: *ASPSESSIONID	Header	ASP	Microsoft	ASP
+X-Powered-By: *Phusion Passenger	Header	Passenger	Phusion	Passenger
+Server: *nginx/([0-9\.]+) \(Ubuntu\)	Header	nginx-Ubuntu	Ubuntu	nginx
+meta name="generator" content="WordPress ([^"]+)"	Body	WordPress	WordPress	WordPress
+WordPress/([0-9\.]+)	Header	WordPress	WordPress	WordPress
+wp-content/themes/([^/]+)/	Body	WordPress Theme	WordPress	WordPress-Theme
+wp-content/plugins/([^/]+)/	Body	WordPress Plugin	WordPress	WordPress-Plugin
+wp-includes/js/	Body	WordPress	WordPress	WordPress
+Set-Cookie: *wordpress_logged_in	Header	WordPress	WordPress	WordPress
+Set-Cookie: *wp-settings-	Header	WordPress	WordPress	WordPress
+meta name="generator" content="Joomla! ([^"]+)"	Body	Joomla	OpenSourceMatters	Joomla
+Joomla! ([0-9\.]+)	Body	Joomla	OpenSourceMatters	Joomla
+/administrator/index\.php	Body	Joomla Admin	OpenSourceMatters	Joomla
+meta name="generator" content="Drupal ([^"]+)"	Body	Drupal	Drupal	Drupal
+X-Generator: *Drupal ([0-9\.]+)?	Header	Drupal	Drupal	Drupal
+/CHANGELOG\.txt	Body	Drupal	Drupal	Drupal
+meta name="generator" content="TYPO3 CMS ([^"]+)"	Body	TYPO3	TYPO3	TYPO3
+typo3conf/ext/	Body	TYPO3	TYPO3	TYPO3
+meta name="generator" content="phpBB	Body	phpBB	phpBB	phpBB
+viewtopic\.php\?t=	Body	phpBB	phpBB	phpBB
+meta name="generator" content="MediaWiki ([^"]+)"	Body	MediaWiki	Wikimedia	MediaWiki
+Powered by <a href="https?://www\.mediawiki\.org"	Body	MediaWiki	Wikimedia	MediaWiki
+meta name="generator" content="DokuWiki"	Body	DokuWiki	DokuWiki	DokuWiki
+<meta name="generator" content="Moodle ([^"]+)"	Body	Moodle	Moodle	Moodle
+meta name="generator" content="PrestaShop"	Body	PrestaShop	PrestaShop	PrestaShop
+Set-Cookie: *PrestaShop-[A-Za-z0-9\-]+=	Header	PrestaShop	PrestaShop	PrestaShop
+meta name="generator" content="Magento"	Body	Magento	Adobe	Magento
+Set-Cookie: *frontend=	Header	Magento	Adobe	Magento
+meta name="generator" content="Shopify"	Body	Shopify	Shopify	Shopify
+X-ShopId: *[0-9]+	Header	Shopify	Shopify	Shopify
+X-Shopify-Stage: *production	Header	Shopify	Shopify	Shopify
+Set-Cookie: *_shopify_y=	Header	Shopify	Shopify	Shopify
+meta name="generator" content="osCommerce"	Body	osCommerce	osCommerce	osCommerce
+Set-Cookie: *osCsid=	Header	osCommerce	osCommerce	osCommerce
+meta name="generator" content="OpenCart"	Body	OpenCart	OpenCart	OpenCart
+Set-Cookie: *OCSESSID=	Header	OpenCart	OpenCart	OpenCart
+meta name="generator" content="WooCommerce"	Body	WooCommerce	Automattic	WooCommerce
+Set-Cookie: *woocommerce_cart_hash	Header	WooCommerce	Automattic	WooCommerce
+Set-Cookie: *X-Magento-Vary	Header	Magento	Adobe	Magento
+Server: *BigCommerce	Header	BigCommerce	BigCommerce	BigCommerce
+meta name="generator" content="BigCommerce"	Body	BigCommerce	BigCommerce	BigCommerce
+Server: *Wix\.com	Header	Wix	Wix	Wix
+X-Wix-Request-Id: .*	Header	Wix	Wix	Wix
+Server: *Squarespace	Header	Squarespace	Squarespace	Squarespace
+Server: *Weebly	Header	Weebly	Weebly	Weebly
+Server: *Ghost	Header	Ghost	Ghost	Ghost
+meta name="generator" content="Ghost ([^"]+)"	Body	Ghost	Ghost	Ghost
+Server: *Umbraco	Header	Umbraco	Umbraco	Umbraco
+X-Umbraco-Version: ([0-9\.]+)	Header	Umbraco	Umbraco	Umbraco
+meta name="generator" content="Concrete5 - ([^"]+)"	Body	Concrete5	Concrete CMS	Concrete5
+meta name="generator" content="GravCMS"	Body	Grav	Grav	Grav
+Server: *Zope/([0-9\.]+)	Header	Zope	ZopeFoundation	Zope
+Server: *Plone/([0-9\.]+)	Header	Plone	Plone	Plone
+meta name="generator" content="Liferay"	Body	Liferay	Liferay	Liferay
+Set-Cookie: *LFR_SESSION_STATE_	Header	Liferay	Liferay	Liferay
+Server: *Oracle-HTTP-Server	Header	Oracle HTTP Server	Oracle	OHS
+Server: *Sun-ONE-Web-Server/([0-9\.]+)	Header	Sun ONE	Sun	SunONE
+Server: *IBM_HTTP_Server/([0-9\.]+)	Header	IBM HTTP	Server	IBM	IBMHTTP
+Server: *nginx-rtmp-module	Header	nginx-rtmp	nginx-rtmp	nginx-rtmp
+Server: *WowzaStreamingEngine/([0-9\.]+)	Header	Wowza	Wowza	Wowza
+Server: *Naxsi	Header	NAXSI	NAXSI	NAXSI
+X-Powered-By: *Nette Framework	Header	Nette	Nette	Nette
+Server: *gunicorn/([0-9\.]+)	Header	Gunicorn	Gunicorn	Gunicorn
+Server: *Jetty\(	Header	Jetty	EclipseFoundation	Jetty
+Server: *resin/([0-9\.]+)	Header	Resin	Caucho	Resin
+Server: *WebLogic Server ([0-9\.]+)	Header	WebLogic	Oracle	WebLogic
+Server: *nginx/([0-9\.]+) \(Amazon\)	Header	nginx-Amazon	Amazon	nginx
+Server: *CloudFront	Header	CloudFront	Amazon	CloudFront
+Via: *cloudfront\.net	Header	CloudFront	Amazon	CloudFront
+Server: *NetScaler	Header	NetScaler	Citrix	NetScaler
+Set-Cookie: *NSC_	Header	NetScaler	Citrix	NetScaler
+Server: *AkamaiGHost	Header	Akamai	Akamai	AkamaiGHost
+Server: *FortiWeb	Header	FortiWeb	Fortinet	FortiWeb
+Server: *FortiGate	Header	FortiGate	Fortinet	FortiGate
+Server: *SonicWALL	Header	SonicWALL	SonicWall	SonicWALL
+Server: *BarracudaHTTP	Header	Barracuda WAF	Barracuda	Barracuda
+Server: *Cloudflare	Header	Cloudflare	Cloudflare	Cloudflare
+Server: *Sucuri/([0-9\.]+)	Header	Sucuri	Sucuri	Sucuri
+Server: *Imperva	Header	Imperva	Imperva	Imperva
+Server: *Incapsula	Header	Incapsula	Incapsula	Incapsula
+Server: *Citrix Web PN Server	Header	Citrix	Citrix	CitrixWebPN
+Server: *nginx.*Phusion Passenger	Header	Passenger	Phusion	Passenger
+X-Powered-By: *Phusion Passenger	Header	Passenger	Phusion	Passenger
+Server: *Apache.*mod_jk	Header	mod_jk	Apache	mod_jk
+Server: *Apache.*mod_perl	Header	mod_perl	Apache	mod_perl
+Server: *Apache.*mod_fastcgi	Header	mod_fastcgi	Apache	mod_fastcgi
+Server: *Apache.*mod_python	Header	mod_python	Apache	mod_python
+Server: *Apache.*mod_wsgi	Header	mod_wsgi	Apache	mod_wsgi
+X-Powered-By: *Mono	Header	Mono	Xamarin	Mono
+Server: *Cherokee/([0-9\.]+)	Header	Cherokee	Cherokee	Cherokee
+Server: *nginx.*PleskLin	Header	Plesk	Plesk	Plesk
+X-Powered-By-Plesk: *PleskLin	Header	Plesk	Plesk	Plesk
+Server: *cPanel	Header	cPanel	cPanel	cPanel
+Server: *DirectAdmin	Header	DirectAdmin	DirectAdmin	DirectAdmin
+Server: *LiteSpeed.*cPanel	Header	cPanel	LiteSpeed	cPanel
+Server: *VestaCP	Header	VestaCP	Vesta	VestaCP
+X-Powered-By: *XOOPS	Header	XOOPS	XOOPS	XOOPS
+meta name="generator" content="XOOPS"	Body	XOOPS	XOOPS	XOOPS
+X-Powered-By: *DotNetNuke	Header	DotNetNuke	DNN	DotNetNuke
+meta name="generator" content="DNN"	Body	DotNetNuke	DNN	DotNetNuke
+meta name="generator" content="Kentico CMS ([^"]+)"	Body	Kentico	Kentico	Kentico
+X-Powered-By: *Sitecore	Header	Sitecore	Sitecore	Sitecore
+meta name="GENERATOR" content="Sitecore"	Body	Sitecore	Sitecore	Sitecore
+meta name="generator" content="Umbraco"	Body	Umbraco	Umbraco	Umbraco
+X-Backside-Transport: *	Header	IBM WebSEAL	IBM	WebSEAL
+Server: *IBM WebSphere DataPower	Header	DataPower	IBM	DataPower
+Server: *Netscape-Enterprise/([0-9\.]+)	Header	Netscape Enterprise	Netscape	NetscapeEnterprise
+Server: *Sun-ONE-Web-Server/([0-9\.]+)	Header	Sun One	Sun	SunONE
+Server: *Oracle-iPlanet-Web-Server/([0-9\.]+)	Header	iPlanet	Oracle	iPlanet
+Set-Cookie: *ZSESSIONID=	Header	Zope	ZopeFoundation	Zope
+Server: *Jetty.*Zope	Header	Zope	ZopeFoundation	Zope
+Server: *Microsoft-HTTPAPI/([0-9\.]+)	Header	HTTPAPI	Microsoft	HTTPAPI
+Server: *Apache Traffic Server	Header	ATS	Apache	ATS
+Server: *Netlify	Header	Netlify	Netlify	Netlify
+Server: *Vercel	Header	Vercel	Vercel	Vercel
+Server: *GitLab	Header	GitLab	GitLab	GitLab
+Server: *GitHub\.com	Header	GitHub Pages	GitHub	GitHubPages
+Server: *Tridion	Header	Tridion	Tridion	Tridion
+Server: *Alfresco	Header	Alfresco	Alfresco	Alfresco
+Server: *SAP NetWeaver Application Server ([0-9\.]+)	Header	SAP NetWeaver	SAP	SAP-NetWeaver
+Server: *SAP Web Dispatcher	Header	SAP Web Dispatcher	SAP	SAP-WebDispatcher
+Server: *nginx.*Drupal	Header	Drupal	Drupal	Drupal
+X-Powered-By: *SilverStripe	Header	SilverStripe	SilverStripe	SilverStripe
+meta name="generator" content="SilverStripe"	Body	SilverStripe	SilverStripe	SilverStripe
+Server: *Contao Open Source CMS	Header	Contao	Contao	Contao
+meta name="generator" content="Contao Open Source CMS"	Body	Contao	Contao	Contao
+Server: *Mura CMS	Header	Mura	Mura	Mura
+meta name="generator" content="Mura CMS"	Body	Mura	Mura	Mura
+X-Powered-By: *eZ Publish	Header	eZ Publish	eZ Systems	eZPublish
+meta name="generator" content="eZ Publish"	Body	eZ Publish	eZ Systems	eZPublish
+cat >> addOns/softwareversionreporter/resources/detection-rules.tsv << 'EOF'
+Server: *TYPO3 CMS/([0-9\.]+)	Header	TYPO3	TYPO3	TYPO3
+meta name="generator" content="TYPO3 CMS ([^"]+)"	Body	TYPO3	TYPO3	TYPO3
+Server: *Moodle/([0-9\.]+)	Header	Moodle	Moodle	Moodle
+meta name="generator" content="Moodle ([^"]+)"	Body	Moodle	Moodle	Moodle
+Server: *PrestaShop/([0-9\.]+)	Header	PrestaShop	PrestaShop	PrestaShop
+meta name="generator" content="PrestaShop"	Body	PrestaShop	PrestaShop	PrestaShop
+Server: *Magento/([0-9\.]+)	Header	Magento	Adobe	Magento
+meta name="generator" content="Magento ([^"]+)"	Body	Magento	Adobe	Magento
+Server: *Shopify/([0-9\.]+)	Header	Shopify	Shopify	Shopify
+meta name="generator" content="Shopify"	Body	Shopify	Shopify	Shopify
+Server: *osCommerce/([0-9\.]+)	Header	osCommerce	osCommerce	osCommerce
+meta name="generator" content="osCommerce"	Body	osCommerce	osCommerce	osCommerce
+Server: *OpenCart/([0-9\.]+)	Header	OpenCart	OpenCart	OpenCart
+meta name="generator" content="OpenCart"	Body	OpenCart	OpenCart	OpenCart
+Server: *WooCommerce/([0-9\.]+)	Header	WooCommerce	Automattic	WooCommerce
+meta name="generator" content="WooCommerce"	Body	WooCommerce	Automattic	WooCommerce
+Server: *BigCommerce/([0-9\.]+)	Header	BigCommerce	BigCommerce	BigCommerce
+meta name="generator" content="BigCommerce"	Body	BigCommerce	BigCommerce	BigCommerce
+Server: *Wix/([0-9\.]+)	Header	Wix	Wix	Wix
+Server: *Squarespace/([0-9\.]+)	Header	Squarespace	Squarespace	Squarespace
+Server: *Weebly/([0-9\.]+)	Header	Weebly	Weebly	Weebly
+Server: *Ghost/([0-9\.]+)	Header	Ghost	Ghost	Ghost
+meta name="generator" content="Ghost ([^"]+)"	Body	Ghost	Ghost	Ghost
+Server: *Umbraco/([0-9\.]+)	Header	Umbraco	Umbraco	Umbraco
+X-Umbraco-Version: ([0-9\.]+)	Header	Umbraco	Umbraco	Umbraco
+meta name="generator" content="Concrete5 - ([^"]+)"	Body	Concrete5	Concrete CMS	Concrete5
+meta name="generator" content="GravCMS"	Body	Grav	Grav	Grav
+Server: *Plone/([0-9\.]+)	Header	Plone	Plone	Plone
+meta name="generator" content="Plone ([^"]+)"	Body	Plone	Plone	Plone
+Server: *Liferay/([0-9\.]+)	Header	Liferay	Liferay	Liferay
+meta name="generator" content="Liferay"	Body	Liferay	Liferay	Liferay
+Server: *Oracle-HTTP-Server/([0-9\.]+)	Header	Oracle HTTP Server	Oracle	OHS
+Server: *Sun-ONE-Web-Server/([0-9\.]+)	Header	Sun ONE	Web Sun	SunONE
+Server: *IBM_HTTP_Server/([0-9\.]+)	Header	IBM HTTP Server	IBM	IBMHTTP
+Server: *Netscape-Enterprise/([0-9\.]+)	Header	Netscape Enterprise	Netscape	NetscapeEnterprise
+Server: *Microsoft-HTTPAPI/([0-9\.]+)	Header	Microsoft HTTP API	Microsoft	HTTPAPI
+Server: *Cherokee/([0-9\.]+)	Header	Cherokee	Cherokee	Cherokee
+Server: *PleskLin/([0-9\.]+)	Header	Plesk	Plesk	Plesk
+X-Powered-By-Plesk: *PleskLin	Header	Plesk	Plesk	Plesk
+Server: *cPanel/([0-9\.]+)	Header	cPanel	cPanel	cPanel
+Server: *DirectAdmin/([0-9\.]+)	Header	DirectAdmin	DirectAdmin	DirectAdmin
+X-Powered-By: *XOOPS	Header	XOOPS	XOOPS	XOOPS
+meta name="generator" content="XOOPS"	Body	XOOPS	XOOPS	XOOPS
+X-Powered-By: *DotNetNuke	Header	DotNetNuke	DNN	DotNetNuke
+meta name="generator" content="DNN"	Body	DotNetNuke	DNN	DotNetNuke
+meta name="generator" content="Kentico CMS ([^"]+)"	Body	Kentico	Kentico	Kentico
+X-Powered-By: *Sitecore	Header	Sitecore	Sitecore	Sitecore
+meta name="GENERATOR" content="Sitecore"	Body	Sitecore	Sitecore	Sitecore
+Server: *Typo3	Header	Typo3	Typo3	Typo3
+Server: *Alfresco	Header	Alfresco	Alfresco	Alfresco
+Server: *Tridion	Header	Tridion	Tridion	Tridion
+Server: *GitLab	Header	GitLab	GitLab	GitLab
+Server: *GitHub Pages	Header	GitHub	GitHub	GitHubPages
+Server: *Netlify	Header	Netlify	Netlify	Netlify
+Server: *Vercel	Header	Vercel	Vercel	Vercel
+Server: *CloudFront	Header	CloudFront	Amazon	CloudFront
+Via: *cloudfront.net	Header	CloudFront	Amazon	CloudFront
+Server: *AkamaiGHost	Header	Akamai	Akamai	AkamaiGHost
+Server: *Sucuri	Header	Sucuri	Sucuri	Sucuri
+Server: *Imperva	Header	Imperva	Imperva	Imperva
+Server: *Incapsula	Header	Incapsula	Incapsula	Incapsula
+Server: *Citrix Web PN Server	Header	Citrix	Citrix	CitrixWebPN
+X-Powered-By: *Mono	Header	Mono	Xamarin	Mono
+Server: *ASP.NET_Pixed	Header	ASP.NET	Pixed	ASP.NET_Pixed
+X-Powered-By: *ASP.NET_Pixed	Header	ASP.NET	Pixed	ASP.NET_Pixed
+Server: *HAProxy/?([0-9\.]+)	Header	HAProxy	HAProxy	HAProxy
+Server: *Traefik/([0-9\.]+)	Header	Traefik	Traefik	Traefik
+Server: *Kestrel	Header	Kestrel	Microsoft	Kestrel
+X-Powered-By: *CFNetwork	Header	CFNetwork	Apple	CFNetwork
+X-Powered-By: *Gatsby	Header	Gatsby	Gatsby	Gatsby
+X-Powered-By: *Next\.js	Header	Next.js	Vercel	NextJS
+Server: *Netlify	Header	Netlify	Netlify	Netlify
+X-Powered-By: *Perl	Header	Perl	Perl	Perl
+Server: *OpenLiteSpeed	Header	OpenLiteSpeed	OpenLiteSpeed	OpenLiteSpeed
+Server: *WebLogic Server	Header	WebLogic	Oracle	WebLogic
+Server: *Oracle-HTTP-Server	Header	Oracle HTTP Server	Oracle	OHS
+Server: *wswp	Header	WSWP	WSWP	WSWP
+Server: *Cherokee/([0-9\.]+)	Header	Cherokee	Cherokee	Cherokee
+Server: *Trafik	Header	Trafik	Trafik	Trafik
+Server: *Gunicorn	Header	Gunicorn	Gunicorn	Gunicorn
+X-Powered-By: *Resin	Header	Resin	Caucho	Resin
+X-Powered-By: *Jetty	Header	Jetty	EclipseFoundation	Jetty
+Server: *openresty	Header	OpenResty	OpenResty	OpenResty
+X-Powered-By: *Rack	Header	Rack	Ruby	Rack
+X-Powered-By: *TurboGears	Header	TurboGears	TurboGears	TurboGears
+X-Powered-By: *Apache Tomcat	Header	Apache Tomcat	Apache Tomcat	Tomcat
+Server: *Apache Tomcat	Header	Apache Tomcat	Apache Tomcat	Tomcat
+X-Powered-By-ASP.NET MVC	Header	ASP.NET MVC	Microsoft	ASP.NET MVC
+X-Powered-By-ASP.NET	Header	ASP.NET	Microsoft	ASP.NET
+X-Powered-By-PHP	Header	PHP	PHP	PHP
+Server: *Akka-http	Header	Akka-http	Lightbend	Akka-http
+X-Powered-By: *Cloudflare	Header	Cloudflare	Cloudflare	Cloudflare
+Server: *Apollo GraphQL	Header	Apollo GraphQL	Apollo	Apollo GraphQL
+Server: *Grails	Header	Grails	Grails	Grails
+Server: *HyperText Transfer Protocol	Header	Generic HTTP	Generic	Generic
+X-Powered-By: *IIS	Header	IIS	Microsoft	IIS
+X-Powered-By: *Lighttpd	Header	Lighttpd	Lighttpd	Lighttpd
+Server: *Microsoft-HTTPAPI	Header	Microsoft HTTPAPI	Microsoft HTTPAPI	Microsoft HTTPAPI
+Server: *Microsoft HTTP Server	Header	Microsoft HTTP Server	Microsoft HTTP Server	Microsoft HTTP Server
+Server: *nginx/([0-9\.]+) \(Debian\)	Header	nginx Debian	nginx	nginx
+Server: *nginx/([0-9\.]+) \(Alpine\)	Header	nginx Alpine	nginx	nginx
+Server: *Node\.js	Header	Node.js	Node.js	Node.js
+Server: *Openresty/([0-9\.]+)	Header	Openresty	Openresty	Openresty
+X-Powered-By: *Python	Header	Python	Python	Python
+Server: *Python	Header	Python	Python	Python
+X-Powered-By: *Rack	Header	Rack	Rack	Rack
+Server: *Rack	Header	Rack	Rack	Rack
+Set-Cookie: *laravel_session=	Header	Laravel	Laravel	Laravel
+Server: *Sambar Server	Header	Sambar Server	Sambar	Sambar
+Server: *Sun Java System Web Server	Header	Sun Java System Web Server	Sun	Sun
+Server: *Ubuntu server	Header	Ubuntu Server	Ubuntu	Ubuntu
+Server: *Werkzeug/([0-9\.]+)	Header	Werkzeug	Pallets	Werkzeug
+Server: *Yaws/([0-9\.]+)	Header	Yaws	Yaws	Yaws
+Server: *Zope/([0-9\.]+)	Header	Zope	Zope	Zope
+X-Powered-By: *Symfony	Header	Symfony	Symfony	Symfony
+X-Powered-By: *XOOPS	Header	XOOPS	XOOPS	XOOPS
+meta name="generator" content="XOOPS"	Body	XOOPS	XOOPS	XOOPS
+X-Powered-By: *Zend	Header	Zend Framework	Zend	Zend
+meta name="generator" content="SPIP"	Body	SPIP	SPIP	SPIP
+meta name="generator" content="TYPO3 CMS"	Body	TYPO3	TYPO3	TYPO3
+meta name="generator" content="TYPO3"	Body	TYPO3	TYPO3	TYPO3
+meta name="generator" content="XOOPS"	Body	XOOPS	XOOPS	XOOPS
+meta name="generator" content="Zen Cart"	Body	Zen Cart	Zen Cart	Zen Cart
+meta name="generator" content="phplist"	Body	phpList	phpList	phpList
+meta name="generator" content="SquirrelMail"	Body	SquirrelMail	SquirrelMail	SquirrelMail
+X-Powered-By: *WebSphere	Header	WebSphere	IBM	WebSphere
+Server: *WebSphere	Header	WebSphere	IBM	WebSphere
+Server: *WebLogic	Header	WebLogic	Oracle	WebLogic
+X-Powered-By: *WorldClient	Header	WorldClient	WorldClient	WorldClient
+meta name="generator" content="WordPress ([^"]+)"	Body	WordPress	WordPress	WordPress
+WordPress/([0-9\.]+)	Header	WordPress	WordPress	WordPress
+wp-content/themes/([^/]+)/	Body	WordPress Theme	WordPress	WordPress-Theme
+wp-content/plugins/([^/]+)/	Body	WordPress Plugin	WordPress	WordPress-Plugin
+wp-includes/js/	Body	WordPress	WordPress	WordPress
+Set-Cookie: *wordpress_logged_in	Header	WordPress	WordPress	WordPress
+Set-Cookie: *wp-settings-	Header	WordPress	WordPress	WordPress
+
+meta name="generator" content="Joomla! ([^"]+)"	Body	Joomla	OpenSourceMatters	Joomla
+Joomla! ([0-9\.]+)	Body	Joomla	OpenSourceMatters	Joomla
+/administrator/index\.php	Body	Joomla Admin	OpenSourceMatters	Joomla
+
+meta name="generator" content="Drupal ([^"]+)"	Body	Drupal	Drupal	Drupal
+X-Generator: *Drupal ([0-9\.]+)?	Header	Drupal	Drupal	Drupal
+/CHANGELOG\.txt	Body	Drupal	Drupal	Drupal
+
+meta name="generator" content="TYPO3 CMS ([^"]+)"	Body	TYPO3	TYPO3	TYPO3
+typo3conf/ext/	Body	TYPO3	TYPO3	TYPO3
+
+meta name="generator" content="Ghost ([^"]+)"	Body	Ghost	Ghost	Ghost
+meta property="og:site_name" content="Ghost"	Body	Ghost	Ghost	Ghost
+
+meta name="generator" content="Magento ([^"]+)"	Body	Magento	Adobe	Magento
+Set-Cookie: *frontend=	Header	Magento	Adobe	Magento
+Set-Cookie: *adminhtml=	Header	Magento	Adobe	Magento
+
+meta name="generator" content="Shopify"	Body	Shopify	Shopify	Shopify
+X-Shopify-Stage: *production	Header	Shopify	Shopify	Shopify
+
+meta name="generator" content="PrestaShop"	Body	PrestaShop	PrestaShop	PrestaShop
+Set-Cookie: *PrestaShop-[A-Za-z0-9\-]+=	Header	PrestaShop	PrestaShop	PrestaShop
+
+meta name="generator" content="OpenCart"	Body	OpenCart	OpenCart	OpenCart
+Set-Cookie: *OCSESSID=	Header	OpenCart	OpenCart	OpenCart
+
+meta name="generator" content="TYPO3"	Body	TYPO3	TYPO3	TYPO3
+
+meta name="generator" content="SilverStripe"	Body	SilverStripe	SilverStripe	SilverStripe
+X-Powered-By: *SilverStripe	Header	SilverStripe	SilverStripe	SilverStripe
+
+meta name="generator" content="Contao Open Source CMS"	Body	Contao	Contao	Contao
+
+meta name="generator" content="Umbraco"	Body	Umbraco	Umbraco	Umbraco
+X-Umbraco-Version: ([0-9\.]+)	Header	Umbraco	Umbraco	Umbraco
+
+meta name="generator" content="Concrete5 - ([^"]+)"	Body	Concrete5	Concrete CMS	Concrete5
+
+meta name="generator" content="GravCMS"	Body	Grav	Grav	Grav
+
+meta name="generator" content="Mura CMS"	Body	Mura	Mura	Mura
+
+meta name="generator" content="eZ Publish"	Body	eZ Publish	eZ Systems	eZPublish
+X-Powered-By: *eZ Publish	Header	eZ Publish	eZ Systems	eZPublish
+
+meta name="generator" content="TYPO3"	Body	TYPO3	TYPO3	TYPO3
+
+meta name="generator" content="Zen Cart"	Body	Zen Cart	Zen Cart	Zen Cart
+
+meta name="generator" content="phpBB"	Body	phpBB	phpBB	phpBB
+viewtopic\.php\?t=	Body	phpBB	phpBB	phpBB
+
+meta name="generator" content="MediaWiki ([^"]+)"	Body	MediaWiki	Wikimedia	MediaWiki
+Powered by <a href="https?://www\.mediawiki\.org"	Body	MediaWiki	Wikimedia	MediaWiki
+
+meta name="generator" content="DokuWiki"	Body	DokuWiki	DokuWiki	DokuWiki
+
+<meta name="generator" content="Moodle ([^"]+)"	Body	Moodle	Moodle	Moodle
+
+meta name="generator" content="SPIP"	Body	SPIP	SPIP	SPIP
+
+meta name="generator" content="SquirrelMail"	Body	SquirrelMail	SquirrelMail	SquirrelMail
+
+meta name="generator" content="phpList"	Body	phpList	phpList	phpList
+
+meta name="generator" content="XOOPS"	Body	XOOPS	XOOPS	XOOPS
+X-Powered-By: *XOOPS	Header	XOOPS	XOOPS	XOOPS
+
+meta name="generator" content="DotNetNuke"	Body	DotNetNuke	DNN	DotNetNuke
+X-Powered-By: *DotNetNuke	Header	DotNetNuke	DNN	DotNetNuke
+
+meta name="generator" content="Kentico CMS ([^"]+)"	Body	Kentico	Kentico	Kentico
+
+meta name="generator" content="Sitecore"	Body	Sitecore	Sitecore	Sitecore
+X-Powered-By: *Sitecore	Header	Sitecore	Sitecore	Sitecore
+
+meta name="generator" content="Liferay"	Body	Liferay	Liferay	Liferay
+Set-Cookie: *LFR_SESSION_STATE_	Header	Liferay	Liferay	Liferay
+
+meta name="generator" content="Typo3"	Body	Typo3	Typo3	Typo3
+
+# Some common login/admin paths to help detection
+/admin/login	Body	Generic CMS Admin	Path
+/administrator/login	Body	Generic CMS Admin	Path
+/user/login	Body	Generic CMS Login	Path
+/user/register	Body	Generic CMS Register	Path
